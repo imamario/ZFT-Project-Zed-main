@@ -33,6 +33,8 @@ right=0;
 down=0;
 up=0;
 sprint=0;
+sneak=0
+sneaking=false
 
 // Initialize the array that will hold our trail data
 trail_list = [];

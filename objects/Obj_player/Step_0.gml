@@ -3,13 +3,21 @@ right=InputCheck(INPUT_VERB.RIGHT);
 down=InputCheck(INPUT_VERB.DOWN);
 up=InputCheck(INPUT_VERB.UP);
 sprint=InputCheck(INPUT_VERB.SPRINT);
+sneak=InputPressed(INPUT_VERB.SNEAK)
 if keyboard_check(ord("R")){room_restart()};
 randomise();
 
+if sneak{sneaking=!sneaking}
+
 // --- MOVEMENT --- //
-if sprint{
+
+if !sneaking && sprint{
 	spd=20;
+}else if sneaking && !sprint{
+	spd=3	
 }else{spd=10};
+
+show_debug_message(spd)
 
 _xdir= ((-left +right));
 _ydir= ((+down -up));
