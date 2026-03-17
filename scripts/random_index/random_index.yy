@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"random_index",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"random_index",
+  "parent":{
+    "name":"Sprite",
+    "path":"folders/scripts/ASSET_Scripts/Sprite.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

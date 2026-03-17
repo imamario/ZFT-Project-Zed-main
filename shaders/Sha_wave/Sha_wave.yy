@@ -1,0 +1,12 @@
+{
+  "$GMShader":"",
+  "%Name":"Sha_wave",
+  "name":"Sha_wave",
+  "parent":{
+    "name":"shaders",
+    "path":"folders/shaders.yy",
+  },
+  "resourceType":"GMShader",
+  "resourceVersion":"2.0",
+  "type":1,
+}

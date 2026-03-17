@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"scr_jumpCheck",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"scr_jumpCheck",
+  "parent":{
+    "name":"platform",
+    "path":"folders/scripts/platform.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

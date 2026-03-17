@@ -1,0 +1,26 @@
+{
+  "$GMSound":"v2",
+  "%Name":"Snd_scaryroar1",
+  "audioGroupId":{
+    "name":"audiogroup_default",
+    "path":"audiogroups/audiogroup_default",
+  },
+  "bitDepth":1,
+  "channelFormat":0,
+  "compression":1,
+  "compressionQuality":4,
+  "conversionMode":0,
+  "duration":18.018684,
+  "exportDir":"",
+  "name":"Snd_scaryroar1",
+  "parent":{
+    "name":"Scaryroars",
+    "path":"folders/Sounds/Scaryroars.yy",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"Snd_scaryroar1.ogg",
+  "volume":1.0,
+}

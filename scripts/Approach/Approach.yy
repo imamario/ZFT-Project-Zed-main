@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"Approach",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"Approach",
+  "parent":{
+    "name":"Tweens",
+    "path":"folders/scripts/ASSET_Scripts/Tweens.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

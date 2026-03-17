@@ -1,0 +1,1 @@
+with(Obj_mouse){image_alpha=1}

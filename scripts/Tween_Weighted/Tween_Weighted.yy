@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"Tween_Weighted",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"Tween_Weighted",
+  "parent":{
+    "name":"Tweens",
+    "path":"folders/scripts/ASSET_Scripts/Tweens.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

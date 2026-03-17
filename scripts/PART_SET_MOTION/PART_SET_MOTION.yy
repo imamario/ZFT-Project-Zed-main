@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"PART_SET_MOTION",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"PART_SET_MOTION",
+  "parent":{
+    "name":"Particles",
+    "path":"folders/scripts/ASSET_Scripts/Particles.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}
