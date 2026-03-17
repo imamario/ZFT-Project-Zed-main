@@ -55,7 +55,7 @@ y = movey;
 // --- SPRITE AND ANGLE LOGIC --- //
 if _xdir=-1 && draw_xscale!=-global.size{
 	if sprite_index!=Spr_peating{
-	draw_xscale=-global.size;draw_yscale=global.size;sprite_index=Spr_pturning;
+	draw_xscale=-global.size;draw_yscale=global.size;sprite_index=Spr_pturning; image_index=0;
 	}	else	{
 		draw_xscale=draw_xscale;
 	}
@@ -63,7 +63,7 @@ if _xdir=-1 && draw_xscale!=-global.size{
 
 if _xdir=1 && draw_xscale!=global.size{
 	if sprite_index!=Spr_peating{
-		draw_xscale=global.size;draw_yscale=global.size;sprite_index=Spr_pturning;
+		draw_xscale=global.size;draw_yscale=global.size;sprite_index=Spr_pturning; image_index=0;
 	}	else	{
 		draw_xscale=draw_xscale;
 	};
@@ -77,8 +77,51 @@ draw_angle=lerp(draw_angle,-_ydir*50,delay);
 draw_angle=lerp(draw_angle,_ydir*50,delay);
 };
 
+// --- TRAIL LOGIC --- //
+
+// 1. ADDING TO THE TRAIL
+// Check if we are sprinting AND actually moving (x or y changed)
+if (sprint && (x != xprevious || y != yprevious)) { 
+    trail_timer++;
+    
+    // Once the timer hits our interval, drop a new ghost
+    if (trail_timer >= trail_interval) {
+        trail_timer = 0;
+        
+        // Create a struct containing the player's exact visual state
+        var _ghost = {
+            t_x: x,
+            t_y: y,
+            t_sprite: sprite_index,
+            t_frame: image_index,
+            t_xscale: draw_xscale,
+            t_yscale: draw_yscale,
+            t_angle: draw_angle,
+            t_alpha: trail_starting_alpha
+        };
+        
+        array_push(trail_list, _ghost);
+    }
+} else {
+    // Reset timer if we stop moving or stop sprinting
+    trail_timer = 0; 
+}
+
+// 2. FADING AND CLEANING UP THE TRAIL (Runs ALWAYS)
+for (var i = array_length(trail_list) - 1; i >= 0; i--) {
+    // Reduce the alpha
+    trail_list[i].t_alpha -= trail_fade_speed;
+    
+    // Delete fully invisible ghosts to save memory
+    if (trail_list[i].t_alpha <= 0) {
+        array_delete(trail_list, i, 1);
+    }
+}
+
+
+//IF DEAD
 if global.state="dead"{x=9999 y=-9999 global.size=0};
-show_debug_message(alarm[2]);
+//show_debug_message(alarm[2]);
 
 //	--- EATING ENEMIES ---	//
 if global.state="running"{
@@ -86,10 +129,10 @@ if global.state="running"{
 	if _fish{
 	if _fish.size<global.size || _fish.size=global.size{//checks if player is bigger than the fish
 		
-	alarm_set(1,200);combo_info[1]++;combo_info[3]++;//increase combo timer combo counter total eaten and size of the player
+	alarm_set(1,125);combo_info[1]++;combo_info[3]++;//increase combo timer combo counter total eaten and size of the player
 	global.size+=global.growth;
 	
-	Obj_player.sprite_index=Spr_peating;//play eating animation
+	image_index=0;	Obj_player.sprite_index=Spr_peating;//play eating animation
 	
 	audio_play_sound(choose(Snd_eat1,Snd_eat2,Snd_eat3,Snd_eat4),1,false,random_range(0.5,1.3),0,random_range(0.8,1.2));//play a sound
 	

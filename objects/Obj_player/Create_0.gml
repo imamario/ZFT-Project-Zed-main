@@ -33,3 +33,12 @@ right=0;
 down=0;
 up=0;
 sprint=0;
+
+// Initialize the array that will hold our trail data
+trail_list = [];
+
+// Trail configuration
+trail_starting_alpha = 0.6; // How visible the trail is when it first spawns
+trail_fade_speed = 0.05;    // How fast the trail fades out per frame
+trail_timer = 0;
+trail_interval = 3;         // Drop a ghost every 3 frames (adjust for density)

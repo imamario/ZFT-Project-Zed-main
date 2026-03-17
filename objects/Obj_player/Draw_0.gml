@@ -1,8 +1,36 @@
 draw_set_font(global.font);
-draw_sprite_ext(sprite_index,image_index,x,y,draw_xscale,draw_yscale,draw_angle,c_white,1);
+var _alpha = 0
+var _value = 0
+if _xdir!=0{_alpha=1}
+_value = lerp(_value,_alpha,0.1)
+
+
+
+draw_set_alpha(_value)
+// 1. Draw the ghost trail FIRST (so it goes behind the player)
+for (var i = 0; i < array_length(trail_list); i++) {
+    var _p = trail_list[i];
+    
+    draw_sprite_ext(
+        _p.t_sprite, 
+        _p.t_frame, 
+        _p.t_x, 
+        _p.t_y, 
+        _p.t_xscale, 
+        _p.t_yscale, 
+        _p.t_angle, 
+        image_blend,     // Inherits your color blending
+        _p.t_alpha       // Our fading alpha
+    );
+}
+draw_set_alpha(1)
+// 2. Draw the actual player ON TOP of the trail
+draw_sprite_ext(sprite_index, image_index, x, y, draw_xscale, draw_yscale, draw_angle, image_blend, 1);
+
+
 /*
+// Your combo text code (left commented out as it was in your snippet)
 draw_set_alpha(alarm[1])
 draw_text_scribble(Obj_cam.x+500,Obj_cam.y+200,"[wobble][wave][pulse][wheel][scaleStack,1.5]" + string(combo_info[1]) + "[/scale]x[/wheel][/pulse][/wave][/wobble]")
-//draw_text_scribble(Obj_cam.x+600,Obj_cam.y+250,"[wobble][wave][pulse][wheel][scaleStack,0.8]x[/scale]")
 draw_set_alpha(1)
 */
