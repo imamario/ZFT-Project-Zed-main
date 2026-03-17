@@ -1,9 +1,8 @@
 draw_set_font(global.font);
-var _alpha = 0
-var _value = 0
 if _xdir!=0{_alpha=1}
-_value = lerp(_value,_alpha,0.1)
-
+_value = lerp(_value,_alpha,0.01)
+_color++
+if _color>255{_color=0}
 
 
 draw_set_alpha(_value)
@@ -19,7 +18,7 @@ for (var i = 0; i < array_length(trail_list); i++) {
         _p.t_xscale, 
         _p.t_yscale, 
         _p.t_angle, 
-        image_blend,     // Inherits your color blending
+        choose(#FF058A,#FF050C,#FF7A05,#FF3705,#FFB405,#CDFF05,#05FF0D,#05FF8A,#05F7FF),     // Inherits your color blending
         _p.t_alpha       // Our fading alpha
     );
 }

@@ -42,3 +42,7 @@ trail_starting_alpha = 0.6; // How visible the trail is when it first spawns
 trail_fade_speed = 0.05;    // How fast the trail fades out per frame
 trail_timer = 0;
 trail_interval = 3;         // Drop a ghost every 3 frames (adjust for density)
+
+_alpha = 0
+_value = 0
+_color=0
