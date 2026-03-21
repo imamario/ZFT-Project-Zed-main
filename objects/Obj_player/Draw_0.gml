@@ -6,6 +6,7 @@ if _color>255{_color=0}
 
 
 draw_set_alpha(_value)
+//shader_set(Sha_redglow)
 // 1. Draw the ghost trail FIRST (so it goes behind the player)
 for (var i = 0; i < array_length(trail_list); i++) {
     var _p = trail_list[i];
@@ -23,6 +24,7 @@ for (var i = 0; i < array_length(trail_list); i++) {
     );
 }
 draw_set_alpha(1)
+//shader_reset()
 // 2. Draw the actual player ON TOP of the trail
 draw_sprite_ext(sprite_index, image_index, x, y, draw_xscale, draw_yscale, draw_angle, image_blend, 1);
 

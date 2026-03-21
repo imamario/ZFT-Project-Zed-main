@@ -32,13 +32,7 @@
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
   "solid":false,
-  "spriteId":{
-    "name":"Spr_pwalk1",
-    "path":"sprites/Spr_pwalk1/Spr_pwalk1.yy",
-  },
-  "spriteMaskId":{
-    "name":"Spr_pmask1",
-    "path":"sprites/Spr_pmask1/Spr_pmask1.yy",
-  },
+  "spriteId":null,
+  "spriteMaskId":null,
   "visible":true,
 }

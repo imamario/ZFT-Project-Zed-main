@@ -17,7 +17,7 @@ if !sneaking && sprint{
 	spd=3	
 }else{spd=10};
 
-show_debug_message(spd)
+//show_debug_message(spd)
 
 _xdir= ((-left +right));
 _ydir= ((+down -up));

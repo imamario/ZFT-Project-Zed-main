@@ -22,7 +22,7 @@ draw_sprite_ext(hud_jaw1,0,_jawx1,_jawy1,_mainsize,_mainsize,image_angle,image_b
 draw_sprite_ext(hud_jaw2,0,_jawx2,_jawy2,_mainsize,_mainsize,jawdraw,image_blend,_mainalpha);
 draw_sprite_ext(Spr_combowheel,1,_jawx2,_jawy2,_mainsize,_mainsize,0,image_blend,_mainalpha);
 
-
+/*
 if _timer>0 {
 draw_set_alpha(Obj_player.alarm[1]);
 draw_text_scribble(_jawx1 - 280, _jawy1 + 30, "[scaleStack,1.5]" + string(_combo) + "[/scale]x");
@@ -30,6 +30,7 @@ draw_set_alpha(1);
 }else{
 draw_text_scribble(_jawx1 - 280, _jawy1 + 30, "[scaleStack,1.5]" + string(_hcombo) + "[/scale]x");
 }
+*/
 draw_set_alpha(1);
 // 1. Setup your target and dimensions
 
@@ -62,6 +63,14 @@ draw_sprite_part_ext(
     c_white, 1
 );
 
+//new combo accurate to the original game
+var _draw_combo=0
+_draw_combo=lerp(_draw_combo,jawdraw,0.01)
+_draw_combo=clamp(_draw_combo,0,0.5)
 
-
+if _combo>2{
+draw_set_alpha(_draw_combo)
+draw_text_scribble(x-325,y+250,"[scaleStack,1.5]combo [/scale]x[scaleStack,1.5]" + string(_combo))
+draw_set_alpha(1)
+}
 

@@ -1,7 +1,6 @@
 randomise()
 
 
-
 u_time_id = shader_get_uniform(Sha_wave, "u_time");
 u_amplitude_id = shader_get_uniform(Sha_wave, "u_amplitude");
 u_frequency_id = shader_get_uniform(Sha_wave, "u_frequency");
@@ -19,13 +18,16 @@ sped = 1.5;
 
 hspd=0;
 hspd=random_range(5,8);
+OGhspd=hspd
 
 
 
 sprite_index=Spr_enemies2;
 size=choose(0.5,0.5,1,1,1,1.5);
-if (global.size<0.8){size=choose(0.5,0.5,0.5,0.5,0.5,1) hspd=random_range(3,5)};
+if (global.size<0.98){size=choose(0.5,0.5,0.5,0.5,0.5,1) hspd=random_range(3,5)};
 
+//exclude his
+//size=1.5
 
 switch(size){
 	case 0.5:
@@ -44,7 +46,8 @@ switch(size){
 
 
 diff=round(random(13));
-type=round(random(2));
+type=choose(1,2,2,2,2,2)//round(random(11));
+turn=round(random(60));
 
 
 

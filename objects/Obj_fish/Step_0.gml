@@ -1,34 +1,53 @@
-var _dist = point_distance(x, y, Obj_player.x, Obj_player.y);
-var _range = 100; // The radius of your circle
 
-/*
-if (_dist <= _range) {
-glow_amount = lerp(glow_amount,0.8,0.1);
-} else {
-glow_amount = lerp(glow_amount,0.3,0.1);
+
+
+switch(type){
+	
+	case  1:
+	if size>global.size{
+	
+	var _range = 500
+	var _distance = point_distance(x,y,Obj_player.x,Obj_player.y)
+	
+	 if sign(hspd)>0 {
+		 
+		if !object_follow( Obj_player, hspd, _range, 0, true, true ) {image_angle=0 x+=hspd}
+	 
+	 }else{
+		 
+		if !object_follow( Obj_player, -hspd, _range, 180, true, true ) {image_angle=0 x+=hspd}
+		
+		}
+	 
+	}else{x+=hspd}
+	break;
+
+	case 2:
+	
+	if turn!=0{turn-=0.1}else{turn=round(random_range(100,220))}
+	if turn=0.1{image_xscale=-image_xscale hspd=-hspd}
+	x+=hspd
+	
+	break;
+
 }
-*/	
+
+
+
+
 
 // Increment the time variable to animate the wave
 time += 0.05;
-x+=hspd;
 
 
 
 
 
-if diff>10{
 
-	if type==0{
 
-	
-	
-    // Enemy starts chasing or "glows" red
 
-	
-	
-	};
-	
-};
+
+
+
 
 if x=room_width+600 || x=-500{instance_destroy()};
