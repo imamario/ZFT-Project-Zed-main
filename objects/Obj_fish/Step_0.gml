@@ -11,11 +11,11 @@ switch(type){
 	
 	 if sign(hspd)>0 {
 		 
-		if !object_follow( Obj_player, hspd, _range, 0, true, true ) {image_angle=0 x+=hspd}
+		if !object_follow( Obj_player, hspd, _range, 0, false, false ) {image_angle=0 x+=hspd}
 	 
 	 }else{
 		 
-		if !object_follow( Obj_player, -hspd, _range, 180, true, true ) {image_angle=0 x+=hspd}
+		if !object_follow( Obj_player, -hspd, _range, 180, false, false ) {image_angle=0 x+=hspd}
 		
 		}
 	 

@@ -21,6 +21,13 @@ var _jawy2=_jawy1+165;
 draw_sprite_ext(hud_jaw1,0,_jawx1,_jawy1,_mainsize,_mainsize,image_angle,image_blend,_mainalpha);
 draw_sprite_ext(hud_jaw2,0,_jawx2,_jawy2,_mainsize,_mainsize,jawdraw,image_blend,_mainalpha);
 draw_sprite_ext(Spr_combowheel,1,_jawx2,_jawy2,_mainsize,_mainsize,0,image_blend,_mainalpha);
+//draw_sprite_ext(Spr_combowheel,1,_jawx2,_jawy2,_mainsize,_mainsize,0,image_blend,_mainalpha);
+draw_set_halign(fa_center)
+draw_set_valign(fa_center)
+draw_set_font(fnt_alarm)
+draw_sprite_ext(Spr_timer,0,x+960,y+500,0.5,0.5,0,c_white,1)
+draw_text_scribble(x+875,y+495,"[#17EDEC] [scaleStack,1.2]00:00")
+draw_set_font(global.font)
 
 /*
 if _timer>0 {
@@ -70,7 +77,8 @@ _draw_combo=clamp(_draw_combo,0,0.5)
 
 if _combo>2{
 draw_set_alpha(_draw_combo)
-draw_text_scribble(x-325,y+250,"[scaleStack,1.5]combo [/scale]x[scaleStack,1.5]" + string(_combo))
+draw_text_scribble(x,y+350,"[wave][scaleStack,1.5]combo [/scale]x[scaleStack,1.5]" + string(_combo))
+scribble_anim_wave(10,5,_combo/50)
 draw_set_alpha(1)
 }
 

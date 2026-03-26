@@ -21,7 +21,7 @@ depth=-99999
 jawdraw=0
 
 
-
+a=0
 
 // --- DEFINE YOUR MAP BOUNDARIES ---
 // Set these to the coordinates of your room

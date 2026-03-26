@@ -30,8 +30,8 @@ if global.state="running" || global.state="rage"{
     yto = room_height/2
 }
 
-x = lerp(x,xto,0.5)
-y = lerp(y,yto,0.5)
+x = lerp(x,xto,0.1)
+y = lerp(y,yto,0.1)
 
 // 4. Lock the camera object inside the "Safe Zone" 
 // This prevents it from going into "free mode" at the corners
