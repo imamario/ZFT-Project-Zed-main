@@ -1,11 +1,29 @@
+
 left=InputCheck(INPUT_VERB.LEFT);
 right=InputCheck(INPUT_VERB.RIGHT);
 down=InputCheck(INPUT_VERB.DOWN);
 up=InputCheck(INPUT_VERB.UP);
 sprint=InputCheck(INPUT_VERB.SPRINT);
 sneak=InputPressed(INPUT_VERB.SNEAK)
-if keyboard_check(ord("R")){room_restart()};
+
+do_basics()
+if keyboard_check(ord("R")){full_restart()};
 randomise();
+
+//if (audio_is_playing(Snd_infernos)) {
+
+//}
+
+
+/*
+if ISbetween(rocksong,14.65,15.00) {
+//show_debug_message(rocksong)
+room_goto(Rm_FeedFreenzy)
+	
+}
+*/
+
+
 
 if sneak{sneaking=!sneaking}
 
@@ -62,16 +80,16 @@ y = movey;
 
 // --- SPRITE AND ANGLE LOGIC --- //
 if _xdir=-1 && draw_xscale!=-global.size{
-	if sprite_index!=Spr_peating{
-	draw_xscale=-global.size;draw_yscale=global.size;sprite_index=Spr_pturning; image_index=0;
+	if sprite_index!=spreating{
+	draw_xscale=-global.size;draw_yscale=global.size;sprite_index=sprturning; image_index=0;
 	}	else	{
 		draw_xscale=draw_xscale;
 	}
 }
 
 if _xdir=1 && draw_xscale!=global.size{
-	if sprite_index!=Spr_peating{
-		draw_xscale=global.size;draw_yscale=global.size;sprite_index=Spr_pturning; image_index=0;
+	if sprite_index!=spreating{
+		draw_xscale=global.size;draw_yscale=global.size;sprite_index=sprturning; image_index=0;
 	}	else	{
 		draw_xscale=draw_xscale;
 	};
@@ -100,10 +118,10 @@ if (sprint && (x != xprevious || y != yprevious)) {
         var _ghost = {
             t_x: x,
             t_y: y,
-            t_sprite: sprite_index,
+            t_sprite: sprtrail,
             t_frame: image_index,
-            t_xscale: draw_xscale,
-            t_yscale: draw_yscale,
+            t_xscale: draw_xscale*1.3,
+            t_yscale: draw_yscale*1.3,
             t_angle: draw_angle,
             t_alpha: trail_starting_alpha
         };
@@ -140,9 +158,7 @@ if global.state="running"{
 	alarm_set(1,100);combo_info[1]++;combo_info[3]++;//increase combo timer combo counter total eaten and size of the player
 	global.size+=global.growth;
 	
-	image_index=0;	Obj_player.sprite_index=Spr_peating;//play eating animation
-	
-	audio_play_sound(choose(Snd_eat1,Snd_eat2,Snd_eat3,Snd_eat4),1,false,random_range(0.5,1.3),0,random_range(0.8,1.2));//play a sound
+	exe_eating()//play eating animation	
 	
 	var _bottlespawn=random(11);
 	if _bottlespawn>10{instance_create_layer(x,y,"Instances",Obj_bottle)};
@@ -167,6 +183,7 @@ var _bottle = instance_place(x,y,Obj_bottle);
 if _bottle{
 	if _bottle.iv_frames<900{
 	alarm_set(2,2500)
+	exe_eating()
 	powerup[0]=true;
 	powerup[1]=_bottle.image_index;
 	instance_destroy(_bottle);
@@ -178,4 +195,3 @@ if alarm[2]<1{
 	powerup[0]=false;
 	powerup[1]=-1;
 };
-

@@ -1,8 +1,9 @@
 /// menu stuff
-enum BTT { // references to buttons
-	A=1,
-	B=2,
-	C=3
+enum BTT {// references to buttons
+	F=0, 
+	A=0,
+	B=1,
+	C=2
 }
 
 enum MENUS { // states for menu variable
@@ -36,11 +37,68 @@ array_btt=[ //showing buttons
 	y: _y
 }]
 
-array_collision=[ //colision for the buttons
-collision_rectangle(1210,195,1760,295,self,false,false),
-collision_rectangle(1210,500,1760,600,self,false,false),
-collision_rectangle(1210,800,1760,900,self,false,false)
-]
+
+array_collision = [
+    [1210, 195, 1760, 295], // Button 0
+    [1210, 500, 1760, 600], // Button 1
+    [1210, 800, 1760, 900]  // Button 2
+];
+
+next_menu = function(_array_index, _changeto, _is_action = -1, _current_menu_check = -1) {
+	
+	//which button to check
+	var a = array_collision[_array_index]
+	
+	//check status
+	if (_current_menu_check == -1 || menu == _current_menu_check) {
+		
+		//check for collision
+		if (point_in_rectangle(mouse_x, mouse_y, a[0], a[1], a[2], a[3])) {
+		    
+			if (mouse_check_button_pressed(mb_left)) {
+				if (_is_action != -1) {
+				
+					return  _is_action() // execute a function such as game_end for example
+				
+				} else {
+				
+					menu = _changeto; // change menu to other
+			
+				}
+			}
+	
+	//space to add other codes if needed
+		}
+	}
+}
+
+
+/*
+next_menu = function(_index, _changeto, _is_action, _current_menu_check = -1) {
+    // 1. Get the collision data from your existing array
+    var _a = array_collision[_index];
+    
+    // 2. Only run if we are in the correct menu (optional check)
+    if (_current_menu_check == -1 || menu == _current_menu_check) {
+        
+        // 3. Collision Check (Using GUI coordinates for UI stability)
+        if (point_in_rectangle(device_mouse_x_to_gui(0), device_mouse_y_to_gui(0), _a[0], _a[1], _a[2], _a[3])) {
+            
+            // 4. Click Check
+            if (mouse_check_button_pressed(mb_left)) {
+                if (_is_action) {
+                    _changeto(); // Runs a function like game_end()
+                } else {
+                    menu = _changeto; // Changes the menu variable
+                }
+                //return true; // Returns true so you know a click happened
+            }
+        }
+    }
+    //return false;
+}	
+*/
+
 			
 
 array_giver = function(){return array_btt} //give away buttons

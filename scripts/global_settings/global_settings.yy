@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"global_settings",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"global_settings",
+  "parent":{
+    "name":"options",
+    "path":"folders/Objects/options.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

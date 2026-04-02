@@ -1,3 +1,22 @@
+var _trailcolor = choose(c_green,c_lime,#a0db39,#5c9200)
+/*
+switch(room){
+	
+	default:
+		_trailcolor = choose(c_green,c_lime,#a0db39,#5c9200)
+	break;
+	
+	case Rm_HungryShark:
+		_trailcolor = c_white
+	break;
+	
+	case Rm_FeedFreenzy:
+		_trailcolor = c_white
+	break;
+	
+}
+*/
+
 draw_set_font(global.font);
 if _xdir!=0{_alpha=1}
 _value = lerp(_value,_alpha,0.01)
@@ -10,17 +29,19 @@ draw_set_alpha(_value)
 // 1. Draw the ghost trail FIRST (so it goes behind the player)
 for (var i = 0; i < array_length(trail_list); i++) {
     var _p = trail_list[i];
-    
+    var _rang = 5
+	var _scal = 0.5
+	
     draw_sprite_ext(
         _p.t_sprite, 
         _p.t_frame, 
-        _p.t_x, 
-        _p.t_y, 
-        _p.t_xscale, 
-        _p.t_yscale, 
+        _p.t_x+random_range(-_rang,_rang), 
+        _p.t_y+random_range(-_rang,_rang), 
+        _p.t_xscale,
+        _p.t_yscale,
         _p.t_angle, 
-        choose(#FF058A,#FF050C,#FF7A05,#FF3705,#FFB405,#CDFF05,#05FF0D,#05FF8A,#05F7FF),     // Inherits your color blending
-        _p.t_alpha       // Our fading alpha
+		_trailcolor,
+        _p.t_alpha-0.1
     );
 }
 draw_set_alpha(1)

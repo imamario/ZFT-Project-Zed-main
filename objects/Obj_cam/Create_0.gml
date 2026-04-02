@@ -19,7 +19,8 @@ yresult=0
 depth=-99999
 
 jawdraw=0
-
+color=0
+color_trans = 0
 
 a=0
 

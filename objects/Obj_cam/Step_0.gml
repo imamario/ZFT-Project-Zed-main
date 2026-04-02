@@ -41,3 +41,7 @@ y = clamp(y, cam_height * 0.5, room_height - (cam_height * 0.5));
 // 5. Final positioning (Centered)
 camera_set_view_pos(view_camera[0], x - (cam_width * 0.5), y - (cam_height * 0.5));
 
+
+
+
+

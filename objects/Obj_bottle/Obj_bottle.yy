@@ -9,8 +9,8 @@
   "name":"Obj_bottle",
   "overriddenProperties":[],
   "parent":{
-    "name":"Player",
-    "path":"folders/Objects/Player.yy",
+    "name":"To_init",
+    "path":"folders/Objects/Player/To_init.yy",
   },
   "parentObjectId":null,
   "persistent":false,

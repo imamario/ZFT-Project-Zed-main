@@ -17,14 +17,35 @@ frequency = 10; //10;
 sped = 1.5;
 
 hspd=0;
-hspd=random_range(5,8);
+hspd=random_range(6,10);
 OGhspd=hspd
 
+/*
+change_sprite = function(){
+switch(room) {
+	default:
+		sprite_index=Spr_enemies2;
+	break;
 
-
-sprite_index=Spr_enemies2;
+	case Rm_HungryShark:
+		sprite_index=Spr_hsenemies
+	break;
+	
+	case Rm_FeedFreenzy:
+		sprite_index=Spr_FeedFreenzyenemies
+	break;
+}
+}
+change_sprite()
+*/
+sprite_index=Spr_enemies2
 size=choose(0.5,0.5,1,1,1,1.5);
 if (global.size<0.98){size=choose(0.5,0.5,0.5,0.5,0.5,1) hspd=random_range(3,5)};
+
+/*size=0.5
+if global.size<1{size=choose(0.5,0.5,0.5,1);}else
+if global.size>1 && global.size<1.5{choose(0.5,0.5,0.5,1);}else{size=choose(1.5,1)}
+*/
 
 //exclude his
 //size=1.5
@@ -46,8 +67,8 @@ switch(size){
 
 
 diff=round(random(13));
-type=choose(1,2,2,2,2,2)//round(random(11));
-turn=round(random(60));
+type=2//choose(1,2,2,2,2,2)//round(random(11));
+turn=round(random(120));
 
 
 

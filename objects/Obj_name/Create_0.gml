@@ -1,0 +1,2 @@
+img_xscale=image_xscale
+img_yscale=image_yscale
