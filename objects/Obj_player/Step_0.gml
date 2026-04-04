@@ -6,7 +6,7 @@ up=InputCheck(INPUT_VERB.UP);
 sprint=InputCheck(INPUT_VERB.SPRINT);
 sneak=InputPressed(INPUT_VERB.SNEAK)
 
-do_basics()
+//do_basics()
 if keyboard_check(ord("R")){full_restart()};
 randomise();
 
@@ -150,7 +150,7 @@ if global.state="dead"{x=9999 y=-9999 global.size=0};
 //show_debug_message(alarm[2]);
 
 //	--- EATING ENEMIES ---	//
-if global.state="running"{
+if (global.state="running") || (global.state="rage") {
 	var _fish = instance_place(x,y,Obj_fish);//set to check which instance is meeting
 	if _fish{
 	if _fish.size<global.size || _fish.size=global.size{//checks if player is bigger than the fish
@@ -168,6 +168,11 @@ if global.state="running"{
 	}else if _fish.size>global.size{
 	global.state="dead" audio_play_sound(Snd_jaw,1,false)};
 	};
+	
+	if (global.state="rage"){ if !exe_rage() { exe_rage() } }else
+	{ if exe_rage() { exe_rage() } };
+	
+	
 };
 
 //	--- COMBO ---	//

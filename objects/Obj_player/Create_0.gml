@@ -1,6 +1,4 @@
-play_basics=0
-rocksong=0
-alarm_set(3,14.65*10)
+
 
 
 do_basics = function(){
@@ -17,7 +15,7 @@ full_restart = function(){
 	audio_stop_all()
 	room_restart()
 }
-
+exe_rage=false
 
 
 

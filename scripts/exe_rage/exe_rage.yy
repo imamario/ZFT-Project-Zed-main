@@ -1,9 +1,9 @@
 {
   "$GMScript":"v1",
-  "%Name":"global_settings",
+  "%Name":"exe_rage",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"global_settings",
+  "name":"exe_rage",
   "parent":{
     "name":"scripts",
     "path":"folders/scripts.yy",

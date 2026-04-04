@@ -21,7 +21,7 @@ for (var i = 0; i < array_length(array_btt); i++) {
     // Draw using the staggered calculation
     draw_sprite_ext(array_btt[i].sprite, 0, _draw_x, _draw_y, 2, 2, 0, c_white, 1);
 	
-	draw_rectangle(1210,195,1760,295,true)
+	//draw_rectangle(1210,195,1760,295,true)
 
 	
 	

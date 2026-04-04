@@ -17,27 +17,24 @@ switch(menu){
 
 */
 }
-
-
-//checking for clicking in anybuttons
-for (var i = 0; i < array_length(array_collision) ; i++){
-
+	
+if mouse_check_button_pressed(mb_left) {
+	
+	//modes mode
+	next_menu(BTT.A,MENUS.MODES,function() { room_goto(Toiletdoom_normal) },MENUS.MODES)//storymode
+	next_menu(BTT.B,MENUS.MODES,function() { audio_play_sound(choose(Snd_fart2,Snd_fart_reverb),1,false,choose(1,2)) },MENUS.MODES)//challenges
+	next_menu(BTT.C,MENUS.MODES,room_restart,MENUS.MODES)//back
+	
+	
 	//normal mode
 	next_menu(BTT.A,MENUS.MODES,-1,MENUS.NORMAL)//play
 	next_menu(BTT.B,MENUS.NORMAL,function() { room_goto(Rm_options) },MENUS.NORMAL)//options
 	next_menu(BTT.C,MENUS.NORMAL,game_end,MENUS.NORMAL)//exit
-	
-	//modes mode
-	//xt_menu(BTT.A,MENUS.MODES,-1,MENUS.NORMAL)
-	next_menu(BTT.A,MENUS.MODES,function() { room_goto(Rm_HungryShark) },MENUS.MODES)
-	next_menu(BTT.B,MENUS.MODES,function() { audio_play_sound(choose(Snd_fart2,Snd_fart_reverb),1,false,choose(1,2)) },MENUS.MODES)
-	next_menu(BTT.C,MENUS.MODES,room_restart,MENUS.MODES)
-	
-	
+		
+}
 	
 	
 	
 	
 	
 
-}

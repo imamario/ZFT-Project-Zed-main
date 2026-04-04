@@ -1,3 +1,4 @@
+
 /// menu stuff
 enum BTT {// references to buttons
 	F=0, 
@@ -45,31 +46,43 @@ array_collision = [
 ];
 
 next_menu = function(_array_index, _changeto, _is_action = -1, _current_menu_check = -1) {
-	
+	//play click s
+	if !audio_is_playing(Snd_click) {
+	audio_play_sound(Snd_click,1,false,global.settings.audio[1],0,1)
+	}
+	//static _sound = 0
+	//print(_sound)
 	//which button to check
 	var a = array_collision[_array_index]
-	
 	//check status
-	if (_current_menu_check == -1 || menu == _current_menu_check) {
-		
-		//check for collision
-		if (point_in_rectangle(mouse_x, mouse_y, a[0], a[1], a[2], a[3])) {
-		    
-			if (mouse_check_button_pressed(mb_left)) {
-				if (_is_action != -1) {
-				
-					return  _is_action() // execute a function such as game_end for example
-				
-				} else {
-				
-					menu = _changeto; // change menu to other
-			
-				}
-			}
 	
-	//space to add other codes if needed
+
+		
+		//if !audio_is_playing(Snd_click) { _sound=1 } else { _sound=0 }
+
+		
+		
+		if (_current_menu_check == -1 || menu == _current_menu_check) {
+		
+			//check for collision
+			if (point_in_rectangle(mouse_x, mouse_y, a[0], a[1], a[2], a[3])) {
+		    
+				if (mouse_check_button_pressed(mb_left)) {
+					if (_is_action != -1) {
+				
+						return  _is_action() // execute a function such as game_end for example
+				
+					} else {
+				
+						menu = _changeto; // change menu to other
+			
+					}
+				}
+	
+		//space to add other codes if needed
+				}
 		}
-	}
+	
 }
 
 
