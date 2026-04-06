@@ -15,7 +15,7 @@ full_restart = function(){
 	audio_stop_all()
 	room_restart()
 }
-exe_rage=false
+
 
 
 

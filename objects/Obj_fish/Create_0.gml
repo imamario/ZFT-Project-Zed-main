@@ -74,9 +74,10 @@ turn=round(random(120));
 
 
 image_yscale=size
+if x<room_width/2{hspd=hspd size=size}else{hspd=-hspd size=-size}
+image_xscale=size
 
 
-if x<room_width/2{hspd=hspd image_xscale=size}else{hspd=-hspd image_xscale=-size}
 frequency=hspd*2
 
 eatanim=-1

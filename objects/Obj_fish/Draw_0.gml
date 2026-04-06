@@ -1,6 +1,10 @@
+var _bal = 0
+
+if sign(size)<0 { _bal=-size } else { _bal=size }
+
 if instance_exists(Obj_player){
-if global.size<size{
-draw_sprite_ext(Spr_glow,0,x,y,image_xscale/1.5,image_yscale/1.5,0,c_white,1);
+if global.size<_bal{
+draw_sprite_ext(Spr_glow,0,x,y,size/1.5,size/1.5,0,c_white,1);
 	}
 }
 shader_set(Sha_wave);

@@ -1,5 +1,7 @@
 global.save=0
 global.font = font_add_sprite_ext(Spr_font,"$qc.?!()wemavk8o9gzx2ruj6ydnb0ps47l%/1iht3f5v÷+×='_-:",true,0)
+global.level = [0,0]
+draw_set_font(global.font)
 draw_set_halign(fa_center)
 draw_set_valign(fa_center)
 
@@ -9,11 +11,15 @@ if !directory_exists("Mods"){
 directory_create("Mods")};
 };
 */
-function tittle_background(){
+//function tittle_background(){
 	
-	static bg = choose(Spr_tittlebg,)
+//	static bg = choose(Spr_tittlebg,)
 	
-}
+//}
+
+
+
+
  
 function save(){
     var _olddata = 0;

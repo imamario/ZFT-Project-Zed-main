@@ -25,16 +25,33 @@ room_goto(Rm_FeedFreenzy)
 
 
 
-if sneak{sneaking=!sneaking}
+
+
+
 
 // --- MOVEMENT --- //
 
-if !sneaking && sprint{
-	spd=20;
-}else if sneaking && !sprint{
-	spd=3	
-}else{spd=10};
 
+if sneak{sneaking=!sneaking}
+
+if global.state != "rage" { 
+	
+	if !sneaking && sprint{
+		spd=20;
+	}else if sneaking && !sprint{
+		spd=3	
+	}else{spd=10};
+
+}else{
+	
+	delay=0.1
+	if !sneaking && sprint{
+		spd=50;
+	}else if sneaking && !sprint{
+		spd=10	
+	}else{spd=25};
+
+}
 //show_debug_message(spd)
 
 _xdir= ((-left +right));
@@ -200,3 +217,32 @@ if alarm[2]<1{
 	powerup[0]=false;
 	powerup[1]=-1;
 };
+
+if alarm[2]>0 {
+	
+	if (powerup[1]=2) {
+	
+		sneaking=true	
+	
+	}
+	
+	if (powerup[1]=3) {
+		
+		with(Obj_fish) {
+			
+			size=0.5
+		
+		}
+	}
+	
+	if (powerup[1]=4) {
+		
+		if (point_distance(x, y, Obj_fish.x, Obj_fish.y) < 10) {
+		
+			with(Obj_fish){x=lerp(x,Obj_fish.x,0.1) y=lerp(y,Obj_fish.y,0.1)}
+		
+		}
+	}	
+}
+
+

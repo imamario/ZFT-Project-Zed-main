@@ -85,7 +85,7 @@ if global.state="running"{
 	draw_set_alpha(_draw_combo)
 	color=merge_colour(c_white, c_red, color_trans)
 	draw_set_colour(color)
-	draw_text_scribble(x,y+350,"[wave][scaleStack,1.5]combo [/scale]x[scaleStack,1.5]" + string(_combo))
+	draw_text_scribble(x,y+350,"[wave][wobble][scaleStack,1.5]combo [/scale]x[scaleStack,1.5]" + string(_combo))
 	scribble_anim_wave(10,5,_combo/50)
 	draw_set_colour(c_white)
 	draw_set_alpha(1)

@@ -7,12 +7,15 @@ function exe_rage() {
 	
 	_exe=!_exe
 	
+	
+	
+	
 	if (!_exe) {
 	
 		if (global.state="rage") {
 	
 			layer_background_blend(_bg,c_gray)
-			image_blend=c_maroon
+			//image_blend=c_maroon
 			layer_enable_fx("Rage_eff",true)
 			return true
 			
@@ -20,7 +23,7 @@ function exe_rage() {
 		}else{
 	
 			layer_background_blend(_bg,c_white)
-			image_blend=c_white
+			//image_blend=c_white
 			layer_enable_fx("Rage_eff",false)
 			return false
 			
