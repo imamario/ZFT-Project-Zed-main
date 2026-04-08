@@ -21,7 +21,7 @@ switch(menu){
 if mouse_check_button_pressed(mb_left) {
 	
 	//modes mode
-	next_menu(BTT.A,MENUS.MODES,function() { room_goto(Toiletdoom_normal) },MENUS.MODES)//storymode
+	next_menu(BTT.A,MENUS.MODES,function() { room_goto(Rm_levelselect) },MENUS.MODES)//storymode
 	next_menu(BTT.B,MENUS.MODES,function() { audio_play_sound(choose(Snd_fart2,Snd_fart_reverb),1,false,choose(1,2)) },MENUS.MODES)//challenges
 	next_menu(BTT.C,MENUS.MODES,room_restart,MENUS.MODES)//back
 	
@@ -32,9 +32,33 @@ if mouse_check_button_pressed(mb_left) {
 	next_menu(BTT.C,MENUS.NORMAL,game_end,MENUS.NORMAL)//exit
 		
 }
+
+
+
+if keyboard_check_pressed(vk_enter) {
+
+//var _extras = ["forgotten","secret","scrapped","extras"]
+
+
+	
+	switch(keyboard_string) {
+	
+		default:
+	
+			keyboard_string=""
+			audio_play_sound(Snd_xperror,1,false,0.1)
 	
 	
+		break;
+	
+		case "forgotten":
+	
+			room_goto(Rm_extras)	
+	
+		break;
 	
 	
+	}
+}
 	
 

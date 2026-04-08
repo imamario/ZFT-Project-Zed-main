@@ -10,8 +10,8 @@
   "name":"Obj_name",
   "overriddenProperties":[],
   "parent":{
-    "name":"tittlescreen",
-    "path":"folders/Objects/tittlescreen.yy",
+    "name":"april",
+    "path":"folders/Objects/unused/april.yy",
   },
   "parentObjectId":null,
   "persistent":false,

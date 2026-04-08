@@ -23,3 +23,10 @@ enum LEVEL {
 
 }
 
+draw_levels = function(image,index,xto,yto) {
+	
+	draw_sprite_ext(image,index,xto,yto,0.72,0.7,0,c_white,1)//draw the picture
+	draw_sprite_ext(Spr_portrait,0,xto,yto,0.69,0.69,0,c_white,1)//draw the portrait
+	
+}
+
