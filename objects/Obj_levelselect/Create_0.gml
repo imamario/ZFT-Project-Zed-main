@@ -23,6 +23,8 @@ enum LEVEL {
 
 }
 
+cur_level=0
+
 draw_levels = function(image,index,xto,yto) {
 	
 	draw_sprite_ext(image,index,xto,yto,0.72,0.7,0,c_white,1)//draw the picture

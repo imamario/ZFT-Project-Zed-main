@@ -9,3 +9,4 @@ global.settings={
 	audio : [1, 1], //Music and SFX
 	graphic : [1920, 1280, true] //resolution (width and height) and antialising
 }
+

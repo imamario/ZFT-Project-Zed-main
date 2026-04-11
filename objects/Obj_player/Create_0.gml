@@ -20,6 +20,9 @@ full_restart = function(){
 
 
 do_basics()
+_range=60
+
+
 
 sprite=Spr_pwalk;
 movex=0;
@@ -44,6 +47,7 @@ combo_info=[0,0,0,0];
 spd=10;
 delay=0.07;
 can_spawn=true;
+if FOLLOW_MOUSE { delay=0.05 }
 
 powerup=[false,-1];
 

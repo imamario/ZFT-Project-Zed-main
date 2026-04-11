@@ -48,6 +48,13 @@ draw_set_alpha(1)
 //shader_reset()
 // 2. Draw the actual player ON TOP of the trail
 draw_sprite_ext(sprite_index, image_index, x, y, draw_xscale, draw_yscale, draw_angle, image_blend, 1);
+//print("final xscale: " +string(draw_xscale))
+
+/*
+draw_set_alpha(0.1)
+draw_circle(x,y,_range,false)
+draw_set_alpha(1)
+*/
 
 
 /*

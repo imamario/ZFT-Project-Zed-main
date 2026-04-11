@@ -881,9 +881,9 @@
   "resourceType":"GMProject",
   "resourceVersion":"2.0",
   "RoomOrderNodes":[
+    {"roomId":{"name":"Toiletdoom_normal","path":"rooms/Toiletdoom_normal/Toiletdoom_normal.yy",},},
     {"roomId":{"name":"Rm_menu","path":"rooms/Rm_menu/Rm_menu.yy",},},
     {"roomId":{"name":"Rm_levelselect","path":"rooms/Rm_levelselect/Rm_levelselect.yy",},},
-    {"roomId":{"name":"Toiletdoom_normal","path":"rooms/Toiletdoom_normal/Toiletdoom_normal.yy",},},
     {"roomId":{"name":"Rm_building","path":"rooms/Rm_building/Rm_building.yy",},},
     {"roomId":{"name":"Rm_customlvl","path":"rooms/Rm_customlvl/Rm_customlvl.yy",},},
     {"roomId":{"name":"Toiletdoom_bossroom","path":"rooms/Toiletdoom_bossroom/Toiletdoom_bossroom.yy",},},
