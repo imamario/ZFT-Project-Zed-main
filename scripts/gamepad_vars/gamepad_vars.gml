@@ -5,4 +5,4 @@ gamepad_main=undefined
 
 //#macro Windows:MOBILE false
 //#macro Mobile:MOBILE true
-#macro FOLLOW_MOUSE true
+#macro FOLLOW_MOUSE false

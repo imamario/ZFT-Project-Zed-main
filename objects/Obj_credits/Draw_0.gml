@@ -1,0 +1,1 @@
+//draw_text_scribble(room_width/2,room_height/2,"[link,youtube.comse [/link]")
