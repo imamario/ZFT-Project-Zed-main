@@ -337,4 +337,4 @@ if alarm[2]>0 {
 	}	
 }
 
-print("final xscale: " +string(draw_xscale))
+//print("final xscale: " +string(draw_xscale))

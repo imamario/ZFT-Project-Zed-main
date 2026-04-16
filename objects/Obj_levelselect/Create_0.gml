@@ -33,18 +33,33 @@ enum LEVEL {
 	var _2y = 800
 	
 	//array for the positions
-	positions =[ {
+positions =[ 
+
+	{
 	
 		//top left
 		xto: _x,
-		yto: _y
+		yto: _y,
+		
+		xcol:335,
+		ycol:150,
+		
+		x2col:660,
+		y2col:420
 
 	},
+	
 	{
 	
 		//top right
 		xto: _2x,
-		yto: _y
+		yto: _y,
+		
+		xcol:1285,
+		ycol:150,
+		
+		x2col:1615,
+		y2col:420
 
 	},
 
@@ -52,7 +67,13 @@ enum LEVEL {
 	
 		//bottom left
 		xto: _x,
-		yto: _2y
+		yto: _2y,
+		
+		xcol:335,
+		ycol:660,
+		
+		x2col:660,
+		y2col:932
 
 	},
 
@@ -60,13 +81,19 @@ enum LEVEL {
 	
 		//bottom right
 		xto: _2x,
-		yto: _2y
+		yto: _2y,
+		
+		xcol:1285,
+		ycol:660,
+		
+		x2col:1615,
+		y2col:932
 
 	}
-	]
+]
 	
-	//knowing which stage picture it should show
-	cur_stage=0
+	//knowing which stage picture it should show 
+	cur_stage=[0,Lv_akwarium]
 
 
 

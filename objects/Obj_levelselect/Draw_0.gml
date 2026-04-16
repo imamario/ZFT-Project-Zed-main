@@ -10,7 +10,7 @@ var _2y = 800
 
 for(var i = 0; i < 4 ; i++) {
 	
-	draw_levels(Spr_pictures,cur_stage,positions[i].xto,positions[i].yto)
+	draw_levels(Spr_pictures,cur_stage[0],positions[i].xto,positions[i].yto)
 	
 }
 

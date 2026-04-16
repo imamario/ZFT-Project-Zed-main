@@ -1,5 +1,8 @@
 if timer>0 {timer-=0.1 anim.play_anim=false}else{anim.play_anim=true}
 
+if keyboard_check_pressed(vk_space){save() show_message("saved?")}
+
+
 switch(menu){
 	
 	case MENUS.NORMAL:
