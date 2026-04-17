@@ -69,12 +69,13 @@ switch(size){
 diff=round(random(13));
 type=2//choose(1,2,2,2,2,2)//round(random(11));
 turn=round(random(120));
+eatable=false
 
-
+draw_size = size
 
 
 image_yscale=size
-if x<room_width/2{hspd=hspd size=size}else{hspd=-hspd size=-size}
+if x<room_width/2{hspd=hspd draw_size=draw_size}else{hspd=-hspd draw_size=-draw_size}
 image_xscale=size
 
 

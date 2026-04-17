@@ -1,5 +1,8 @@
+if (size < global.size) {
 
-
+	eatable=true
+	
+}	else	{ eatable=false }
 
 switch(type){
 	
@@ -25,7 +28,7 @@ switch(type){
 	case 2:
 	
 	if turn!=0{turn-=0.1}else{turn=round(random_range(100,220))}
-	if turn=0.1{size=-size hspd=-hspd}
+	if turn=0.1{draw_size=-draw_size hspd=-hspd} 
 	x+=hspd
 	
 	break;
@@ -39,7 +42,7 @@ switch(type){
 // Increment the time variable to animate the wave
 time += 0.05;
 
-image_xscale=lerp(image_xscale,size,0.05)
+image_xscale=lerp(image_xscale,draw_size,0.05)
 //image_yscale=lerp(image_yscale,size,0.1)
 
 

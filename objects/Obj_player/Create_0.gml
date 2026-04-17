@@ -40,9 +40,15 @@ draw_angle=global.size;
 
 alarm[0]=100;
 
-combo_info=[0,0,0,0];
+near_fish = [undefined,undefined] // id of the fish and size
+fish_bigger = false
 
+combo_info=[0,0,0,0];
 //combo timer, combo eaten, highest combo, eaten total
+
+
+
+
 
 spd=10;
 delay=0.07;

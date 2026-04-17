@@ -259,13 +259,17 @@ if global.state="dead"{x=9999 y=-9999 global.size=0};
 //show_debug_message(alarm[2]);
 
 //	--- EATING ENEMIES ---	//
+
+//iginal code
+
 if (global.state="running") || (global.state="rage") {
+
 	var _fish = instance_place(x,y,Obj_fish);//set to check which instance is meeting
 	if _fish{
-	if _fish.size<global.size || _fish.size=global.size{//checks if player is bigger than the fish
+	if _fish.eatable{//checks if player is bigger than the fish
 		
 	alarm_set(1,100);combo_info[1]++;combo_info[3]++;//increase combo timer combo counter total eaten and size of the player
-	
+	global.size+=global.growth;
 	
 	exe_eating()//play eating animation	
 	
@@ -273,9 +277,8 @@ if (global.state="running") || (global.state="rage") {
 	if _bottlespawn>10{instance_create_layer(x,y,"Instances",Obj_bottle)};
 	
 	instance_destroy(_fish);
-	global.size+=global.growth;
 	
-	}else if _fish.size>global.size{
+	}else{
 	global.state="dead" audio_play_sound(Snd_jaw,1,false)};
 	};
 	
@@ -285,6 +288,43 @@ if (global.state="running") || (global.state="rage") {
 	
 };
 
+
+//new code
+/*
+if (global.state="running") || (global.state="rage") {
+	
+	if (global.state="rage"){ if !exe_rage() { exe_rage() } }else
+	{ if exe_rage() { exe_rage() } };
+	
+
+	if instance_exists(Obj_fish) && instance_place(x,y,Obj_fish) {
+		near_fish[0] = instance_place(x,y,Obj_fish)
+		near_fish[1] = instance_place(x,y,Obj_fish).size
+	}else{near_fish = [undefined,undefined]}
+
+	if !array_contains(near_fish,undefined) {
+	
+		var _perm_fish = near_fish
+	
+		if place_meeting(x,y,_perm_fish[0]) {
+		
+			if (_perm_fish[1] > global.size) {//& (_perm_fish[1] != global.size) {
+			
+				global.state="dead"				
+			
+			}else{instance_destroy(_perm_fish[0])}
+		
+		
+		}
+
+
+}
+
+
+
+	print("nearest fish: " + string(near_fish))
+}
+*/
 //	--- COMBO ---	//
 
 combo_info[0]=alarm[1];
