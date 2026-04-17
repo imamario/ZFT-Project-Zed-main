@@ -63,4 +63,4 @@ draw_set_alpha(alarm[1])
 draw_text_scribble(Obj_cam.x+500,Obj_cam.y+200,"[wobble][wave][pulse][wheel][scaleStack,1.5]" + string(combo_info[1]) + "[/scale]x[/wheel][/pulse][/wave][/wobble]")
 draw_set_alpha(1)
 */
-draw_rectangle(bbox_left,bbox_bottom,bbox_right,bbox_top,false)
+//aw_rectangle(bbox_left,bbox_bottom,bbox_right,bbox_top,false)
