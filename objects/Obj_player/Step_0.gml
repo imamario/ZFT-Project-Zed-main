@@ -265,7 +265,7 @@ if (global.state="running") || (global.state="rage") {
 	if _fish.size<global.size || _fish.size=global.size{//checks if player is bigger than the fish
 		
 	alarm_set(1,100);combo_info[1]++;combo_info[3]++;//increase combo timer combo counter total eaten and size of the player
-	global.size+=global.growth;
+	
 	
 	exe_eating()//play eating animation	
 	
@@ -273,6 +273,7 @@ if (global.state="running") || (global.state="rage") {
 	if _bottlespawn>10{instance_create_layer(x,y,"Instances",Obj_bottle)};
 	
 	instance_destroy(_fish);
+	global.size+=global.growth;
 	
 	}else if _fish.size>global.size{
 	global.state="dead" audio_play_sound(Snd_jaw,1,false)};

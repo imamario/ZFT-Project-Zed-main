@@ -19,11 +19,6 @@ directory_create("Mods")};
 	
 //}
 
-
-
-global.save=[0,0] //stage and level
-global.level = [0,0]
-
 function save() {
 	
 	print("old global.save: " + string(global.save))

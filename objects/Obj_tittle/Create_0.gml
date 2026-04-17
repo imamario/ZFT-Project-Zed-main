@@ -1,3 +1,5 @@
+save()
+
 
 /// menu stuff
 enum BTT {// references to buttons
