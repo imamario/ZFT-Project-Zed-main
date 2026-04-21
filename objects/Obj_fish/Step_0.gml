@@ -1,8 +1,12 @@
-if (size < global.size) {
+if (size < global.size) || (size == global.size) {
 
 	eatable=true
 	
-}	else	{ eatable=false }
+}	else  if  (size > global.size) { eatable=false }
+
+
+
+
 
 switch(type){
 	

@@ -1,0 +1,12 @@
+{
+  "$GMShader":"",
+  "%Name":"Sha_plantanim",
+  "name":"Sha_plantanim",
+  "parent":{
+    "name":"shaders",
+    "path":"folders/shaders.yy",
+  },
+  "resourceType":"GMShader",
+  "resourceVersion":"2.0",
+  "type":1,
+}

@@ -73,31 +73,85 @@ if !FOLLOW_MOUSE{
 	movex=lerp(x,xto,delay);
 	movey=lerp(y,yto,delay);
 
-} else { // follow mouse
+} else { 
+    // ==================== FOLLOW MOUSE MODE WITH SPEED LIMIT ====================
+	
+	
+	left=InputCheck(INPUT_VERB.LEFT);
+	right=InputCheck(INPUT_VERB.RIGHT);
+	down=InputCheck(INPUT_VERB.DOWN);
+	up=InputCheck(INPUT_VERB.UP);
+	sprint=InputCheck(INPUT_VERB.SPRINT);
+	sneak=InputPressed(INPUT_VERB.SNEAK)
 	
 	
 	
-	_xdir = mouse_x
-	_ydir = mouse_y
-	xto = _xdir
-	yto = _ydir
-	
-	if (point_distance(x, y, mouse_x, mouse_y) > _range) {
-	
-		movex = lerp(x,xto,delay)
-		movey = lerp(y,yto,delay)
-		
-		var _target_angle = point_direction(x, y, mouse_x, mouse_y);
-        var _diff = angle_difference(_target_angle, draw_angle);
+		if sneak{sneaking=!sneaking}
 
-        draw_angle += _diff * 0.1;
+	if global.state != "rage" { 
+	
+		if !sneaking && sprint{
+			spd=30;
+		}else if sneaking && !sprint{
+			spd=5	
+		}else{spd=10};
+
+	}else{
+	
+		delay=0.1
+		if !sneaking && sprint{
+			spd=50;
+		}else if sneaking && !sprint{
+			spd=10	
+		}else{spd=25};
+
+	}
+	
+	
+	
+    
+    xto = mouse_x;
+    yto = mouse_y;
+
+    var dist_to_mouse = point_distance(x, y, mouse_x, mouse_y);
+
+    if (dist_to_mouse > _range) {
+        
+        // === SMOOTH LERP + SPEED LIMIT ===
+        var max_mouse_speed = spd;           // ← Change this to adjust top speed (recommended 10-16)
+        
+        // Calculate how much we would normally move with lerp
+        var lerp_movex = lerp(x, xto, delay);
+        var lerp_movey = lerp(y, yto, delay);
+        
+        // Calculate the speed we would have this frame
+        var would_be_speed = point_distance(x, y, lerp_movex, lerp_movey);
+        
+        // If we're going too fast, reduce the lerp amount
+        if (would_be_speed > max_mouse_speed) {
+            var reduction = max_mouse_speed / would_be_speed;
+            movex = lerp(x, xto, delay * reduction);
+            movey = lerp(y, yto, delay * reduction);
+        } else {
+            movex = lerp_movex;
+            movey = lerp_movey;
+        }
+
+        // Smooth angle turning toward mouse
+        var _target_angle = point_direction(x, y, mouse_x, mouse_y);
+        var _diff = angle_difference(_target_angle, draw_angle);
+        draw_angle += _diff * 0.12;        // feel free to tweak
         draw_angle = (draw_angle + 360) % 360;
-	
-	}		
-	
-	
-	
+    } 
+    else {
+        movex = x;
+        movey = y;
+    }
 }
+	
+	
+	
+
 
 	// --- HORIZONTAL COLLISION --- //
 	if (place_meeting(movex, y, Obj_wall)) {
