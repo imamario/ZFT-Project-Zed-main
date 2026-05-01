@@ -768,6 +768,7 @@
     {"id":{"name":"Spr_accessorieslvl1","path":"sprites/Spr_accessorieslvl1/Spr_accessorieslvl1.yy",},},
     {"id":{"name":"Spr_angler","path":"sprites/Spr_angler/Spr_angler.yy",},},
     {"id":{"name":"Spr_armor","path":"sprites/Spr_armor/Spr_armor.yy",},},
+    {"id":{"name":"Spr_arrow","path":"sprites/Spr_arrow/Spr_arrow.yy",},},
     {"id":{"name":"Spr_backbtt","path":"sprites/Spr_backbtt/Spr_backbtt.yy",},},
     {"id":{"name":"Spr_bar_pro","path":"sprites/Spr_bar_pro/Spr_bar_pro.yy",},},
     {"id":{"name":"spr_bg_joystick","path":"sprites/spr_bg_joystick/spr_bg_joystick.yy",},},
