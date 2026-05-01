@@ -1,10 +1,11 @@
+/*
 function out_water(){
 	if instance_exists(Obj_player) && instance_exists(Obj_water){
 	with(Obj_water){image_alpha=0}
 	if (Obj_player.y>Obj_water.y){return false}else{return true}
 	}else{return false}
 };
-
+*/
 
 
 

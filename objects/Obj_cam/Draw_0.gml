@@ -1,3 +1,19 @@
+if object_exists(Obj_debug) {
+	
+
+	
+	
+	
+	if (Obj_debug.enabled) {
+	
+		draw_set_halign(fa_center)
+		draw_set_valign(fa_center)
+	
+		draw_text(x-720+string_length(keyboard_string)*20,y+500,"cmd: " + string(keyboard_string))
+	
+		exit;
+	}
+}
 
 var _xto = x-1000;
 var _yto = x-1000;
@@ -27,8 +43,8 @@ if global.state="running"{
 	draw_set_halign(fa_center)
 	draw_set_valign(fa_center)
 	draw_set_font(fnt_alarm)
-	draw_sprite_ext(Spr_timer,0,x+960,y+500,0.5,0.5,0,c_white,1)
-	draw_text_scribble(x+875,y+495,"[#17EDEC] [scaleStack,1.2]00:00")
+	draw_sprite_ext(Spr_timer,0,x+960,y+500,0.5,0.5,0,c_white,1) //timer clock
+	draw_text_scribble(x+875,y+495,"[#17EDEC] [scaleStack,1.2]00:00")//timer clock
 	draw_set_font(global.font)
 
 	/*
@@ -78,16 +94,64 @@ if global.state="running"{
 	_draw_combo=clamp(_draw_combo,0,0.5)
 
 	color_trans = _combo/100
-	color_trans = clamp(color_trans,0,_combo/100)
+	//lor_trans = clamp(color_trans,0,_combo/100)
+	color_trans = clamp(color_trans, 0, 1);
 
 
 	if _combo>2{
-	draw_set_alpha(_draw_combo)
-	color=merge_colour(c_white, c_red, color_trans)
-	draw_set_colour(color)
-	draw_text_scribble(x,y+350,"[wave][wobble][scaleStack,1.5]combo [/scale]x[scaleStack,1.5]" + string(_combo))
-	scribble_anim_wave(10,5,_combo/50)
-	draw_set_colour(c_white)
-	draw_set_alpha(1)
-	}
+		
+		// !(_combo>10){
+			
+			
+		
+			draw_set_alpha(_draw_combo)
+			color=merge_colour(c_white, c_red, color_trans)
+			draw_set_colour(color)
+			draw_text_scribble(x,y+350,"[wave][wobble][scaleStack,1.5]combo [/scale]x[scaleStack,1.5]" + string(_combo))
+			scribble_anim_wave(10,5,_combo/50)
+			draw_set_colour(c_white)
+			draw_set_alpha(1)
+	
+			
+			
+		}
+		/*
+		else
+		{
+			
+			var u_time = shader_get_uniform(Sha_glitch, "u_time");
+			var u_strength = shader_get_uniform(Sha_glitch, "u_strength");
+			
+			shader_set_uniform_f(u_time, current_time / 1000);
+			shader_set_uniform_f(u_strength, 0.05); // Adjust this for "jerkiness"
+			
+			
+			shader_set(Sha_glitch)
+			
+			
+			var	_sep = 999
+			var _wid = 999
+			var _xpos = mouse_x
+			var _ypos = mouse_y
+			
+			
+			
+			draw_set_color(c_maroon)
+			
+			draw_text_ext_transformed(_xpos,_ypos,"combo",_sep,_wid,1.5,1.5,spin)
+			draw_text_ext_transformed(_xpos,_ypos,"     x",_sep,_wid,1,1,spin)
+			draw_text_ext_transformed(_xpos,_ypos,"      " + string(_combo),_sep,_wid,1.5,1.5,spin)
+			
+			draw_set_colour(c_white)
+			
+			
+			shader_reset()
+			
+		}
+		*/
+		
+		//draw bottles
+		
+		
 }
+

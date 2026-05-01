@@ -19,7 +19,9 @@ if menu!=TABS.INTRO && menu!=TABS.NONE {
 		
 	case TABS.AUDIO:
 		
-		draw_options("audio",#ffffff,2,0)
+		draw_options(300, 180,"audio",#00FFFF,2,0)
+		draw_options(290, 385,"song: ",#00FFFF,1.5,1)
+		draw_options(240, 575,"sfx: ",#00FFFF,1.5,2)
 	
 	break;
 		

@@ -11,7 +11,7 @@
   "overriddenProperties":[],
   "parent":{
     "name":"options",
-    "path":"folders/Objects/options.yy",
+    "path":"folders/Objects/tittlescreen/options.yy",
   },
   "parentObjectId":null,
   "persistent":false,

@@ -4,6 +4,7 @@
 do_basics = function(){
 	if !instance_exists(Obj_cam){instance_create_depth(x,y,-9999,Obj_cam)};
 	if !instance_exists(Obj_mus){instance_create_depth(x,y,0,Obj_mus)};
+	if !instance_exists(Obj_debug){instance_create_depth(x,y,0,Obj_debug)};
 }
 
 full_restart = function(){
@@ -33,6 +34,7 @@ yto=y;
 global.size=0.6;
 global.state="running";
 global.growth=0.005;
+global.powers=[0,0,0]
 
 draw_xscale=global.size;
 draw_yscale=global.size;
@@ -51,9 +53,9 @@ combo_info=[0,0,0,0];
 
 
 spd=10;
-delay=0.07;
+delay=0.1;
 can_spawn=true;
-//if FOLLOW_MOUSE { delay=0.07 }
+if !FOLLOW_MOUSE { delay=0.08 }
 
 powerup=[false,-1];
 
@@ -122,6 +124,13 @@ switch(room) {
 */
 
 sprite_index=sprnormal
+vsp = 0;             // Vertical speed
+out_water = false
+gravity_power = 0.5; // How fast you fall
+
+
+
+
 
 
 //function for making the eating animation

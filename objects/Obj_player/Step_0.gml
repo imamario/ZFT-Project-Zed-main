@@ -1,435 +1,209 @@
-if keyboard_check(ord("R")){full_restart()};
+// --- 1. PRE-CHECKS ---
+if (global.state == "victory") {
+    x = 9999; y = -9999; global.size = 0; can_spawn = false;
+    if (exe_rage()) { exe_rage(); }
+    exit;
+}
+
+var _debug_enabled = false;
+if (instance_exists(Obj_debug)) { _debug_enabled = Obj_debug.enabled; }
+if (!_debug_enabled && keyboard_check(ord("R"))) { full_restart(); }
+
 randomise();
 
-if !FOLLOW_MOUSE{
+// --- 2. INPUTS ---
+left = InputCheck(INPUT_VERB.LEFT);
+right = InputCheck(INPUT_VERB.RIGHT);
+down = InputCheck(INPUT_VERB.DOWN);
+up = InputCheck(INPUT_VERB.UP);
+sprint = InputCheck(INPUT_VERB.SPRINT);
+sneak_pressed = InputPressed(INPUT_VERB.SNEAK);
 
-	left=InputCheck(INPUT_VERB.LEFT);
-	right=InputCheck(INPUT_VERB.RIGHT);
-	down=InputCheck(INPUT_VERB.DOWN);
-	up=InputCheck(INPUT_VERB.UP);
-	sprint=InputCheck(INPUT_VERB.SPRINT);
-	sneak=InputPressed(INPUT_VERB.SNEAK)
+if (_debug_enabled) {
+    left = 0; right = 0; down = 0; up = 0; sprint = 0; sneak_pressed = 0;
+}
+if (sneak_pressed) { sneaking = !sneaking; }
 
-	//do_basics()
+// --- 3. SPEED & MOVEMENT CALCULATION ---
+if (global.state != "rage") { 
+    if (!sneaking && sprint) { spd = (FOLLOW_MOUSE) ? lerp(spd, 30, delay) : 25; }
+    else if (sneaking && !sprint) { spd = (FOLLOW_MOUSE) ? lerp(spd, 10, delay) : 3; }
+    else { spd = (FOLLOW_MOUSE) ? lerp(spd, 15, delay) : 10; }
+} else {
+    delay = 0.1;
+    if (!sneaking && sprint) { spd = 50; }
+    else if (sneaking && !sprint) { spd = 10; }
+    else { spd = 25; }
+}
 
+// Store direction globally (no 'var') so Draw event sees it
+_xdir = right - left;
+_ydir = down - up;
 
-	//if (audio_is_playing(Snd_infernos)) {
+if (!FOLLOW_MOUSE) {
+    var _mult = (powerup[1] != 0) ? 1 : -1;
+    xto += _xdir * spd * _mult;
+    yto += _ydir * spd * _mult;
+    movex = lerp(x, xto, delay);
+    movey = lerp(y, yto, delay);
+} else {
+    xto = mouse_x; yto = mouse_y;
+    var _dist = point_distance(x, y, mouse_x, mouse_y);
+    if (_debug_enabled) _dist = 0;
 
-	//}
-
-
-	/*
-	if ISbetween(rocksong,14.65,15.00) {
-	//show_debug_message(rocksong)
-	room_goto(Rm_FeedFreenzy)
-	
-	}
-	*/
-
-
-
-
-
-
-
-	// --- MOVEMENT --- //
-
-
-	if sneak{sneaking=!sneaking}
-
-	if global.state != "rage" { 
-	
-		if !sneaking && sprint{
-			spd=20;
-		}else if sneaking && !sprint{
-			spd=3	
-		}else{spd=10};
-
-	}else{
-	
-		delay=0.1
-		if !sneaking && sprint{
-			spd=50;
-		}else if sneaking && !sprint{
-			spd=10	
-		}else{spd=25};
-
-	}
-	//show_debug_message(spd)
-
-	_xdir= ((-left +right));
-	_ydir= ((+down -up));
-
-	if powerup[1]!=0{
-	xto+=_xdir*spd;
-	yto+=_ydir*spd;
-	}else{
-	xto-=_xdir*spd;
-	yto-=_ydir*spd;
-	}
-	
-	
-	
-	movex=lerp(x,xto,delay);
-	movey=lerp(y,yto,delay);
-
-} else { 
-    // ==================== FOLLOW MOUSE MODE WITH SPEED LIMIT ====================
-	
-	
-	left=InputCheck(INPUT_VERB.LEFT);
-	right=InputCheck(INPUT_VERB.RIGHT);
-	down=InputCheck(INPUT_VERB.DOWN);
-	up=InputCheck(INPUT_VERB.UP);
-	sprint=InputCheck(INPUT_VERB.SPRINT);
-	sneak=InputPressed(INPUT_VERB.SNEAK)
-	
-	
-	
-		if sneak{sneaking=!sneaking}
-
-	if global.state != "rage" { 
-	
-		if !sneaking && sprint{
-			spd=30;
-		}else if sneaking && !sprint{
-			spd=5	
-		}else{spd=10};
-
-	}else{
-	
-		delay=0.1
-		if !sneaking && sprint{
-			spd=50;
-		}else if sneaking && !sprint{
-			spd=10	
-		}else{spd=25};
-
-	}
-	
-	
-	
-    
-    xto = mouse_x;
-    yto = mouse_y;
-
-    var dist_to_mouse = point_distance(x, y, mouse_x, mouse_y);
-
-    if (dist_to_mouse > _range) {
-        
-        // === SMOOTH LERP + SPEED LIMIT ===
-        var max_mouse_speed = spd;           // ← Change this to adjust top speed (recommended 10-16)
-        
-        // Calculate how much we would normally move with lerp
-        var lerp_movex = lerp(x, xto, delay);
-        var lerp_movey = lerp(y, yto, delay);
-        
-        // Calculate the speed we would have this frame
-        var would_be_speed = point_distance(x, y, lerp_movex, lerp_movey);
-        
-        // If we're going too fast, reduce the lerp amount
-        if (would_be_speed > max_mouse_speed) {
-            var reduction = max_mouse_speed / would_be_speed;
-            movex = lerp(x, xto, delay * reduction);
-            movey = lerp(y, yto, delay * reduction);
+    if (_dist > _range) {
+        var _lx = lerp(x, xto, delay);
+        var _ly = lerp(y, yto, delay);
+        var _cur_spd = point_distance(x, y, _lx, _ly);
+        if (_cur_spd > spd) {
+            var _ratio = spd / _cur_spd;
+            movex = lerp(x, xto, delay * _ratio);
+            movey = lerp(y, yto, delay * _ratio);
         } else {
-            movex = lerp_movex;
-            movey = lerp_movey;
+            movex = _lx; movey = _ly;
         }
-
-        // Smooth angle turning toward mouse
-        var _target_angle = point_direction(x, y, mouse_x, mouse_y);
-        var _diff = angle_difference(_target_angle, draw_angle);
-        draw_angle += _diff * 0.12;        // feel free to tweak
-        draw_angle = (draw_angle + 360) % 360;
-    } 
-    else {
-        movex = x;
-        movey = y;
+        var _target_ang = point_direction(x, y, mouse_x, mouse_y);
+        draw_angle += angle_difference(_target_ang, draw_angle) * 0.12;
+    } else {
+        movex = x; movey = y;
     }
 }
-	
-	
-	
 
+// --- 4. COLLISIONS & POSITION ---
+if (place_meeting(movex, y, Obj_wall)) {
+    var _dx = sign(movex - x);
+    while (!place_meeting(x + _dx, y, Obj_wall)) { x += _dx; }
+    movex = x; xto = x;
+}
+x = movex;
 
-	// --- HORIZONTAL COLLISION --- //
-	if (place_meeting(movex, y, Obj_wall)) {
-	    // Inch closer to the wall pixel by pixel until flush
-	    var _dir_x = sign(movex - x);
-	    while (!place_meeting(x + _dir_x, y, Obj_wall)) {
-	        x += _dir_x;
-	    }
-	    movex = x; // Stop the actual movement
-	    xto = x;   // Kill the lerp target momentum
-	}
-	x = movex;
+if (place_meeting(x, movey, Obj_wall)) {
+    var _dy = sign(movey - y);
+    while (!place_meeting(x, y + _dy, Obj_wall)) { y += _dy; }
+    movey = y; yto = y;
+}
+y = movey;
 
-	// --- VERTICAL COLLISION --- //
-	if (place_meeting(x, movey, Obj_wall)) {
-	    // Inch closer to the wall pixel by pixel until flush
-	    var _dir_y = sign(movey - y);
-	    while (!place_meeting(x, y + _dir_y, Obj_wall)) {
-	        y += _dir_y;
-	    }
-	    movey = y; // Stop the actual movement
-	    yto = y;   // Kill the lerp target momentum
-	}
-	y = movey;
+// --- 5. VISUALS & TRAIL ---
+if (!FOLLOW_MOUSE) {
+    if (abs(_xdir) == 1 && sprite_index != spreating) {
+        draw_xscale = _xdir * global.size;
+        draw_yscale = global.size;
+        if (draw_xscale != xprevious_scale) { // Check if flipped
+            sprite_index = sprturning; image_index = 0;
+        }
+    }
+    xprevious_scale = draw_xscale; // Helper variable to track flips
+    draw_angle = lerp(draw_angle, (draw_xscale > 0 ? -_ydir : _ydir) * 50, delay);
 
-if !FOLLOW_MOUSE {
-	
-	
-	// --- SPRITE AND ANGLE LOGIC --- //
-	if _xdir=-1 && draw_xscale!=-global.size{
-		if sprite_index!=spreating{
-		draw_xscale=-global.size;draw_yscale=global.size;sprite_index=sprturning; image_index=0;
-		}	else	{
-			draw_xscale=draw_xscale;
-		}
-	}
+    // TRAIL LOGIC (Capture state after movement is applied)
+    if (sprint && (x != xprevious || y != yprevious)) {
+        trail_timer++;
+        if (trail_timer >= trail_interval) {
+            trail_timer = 0;
+            array_push(trail_list, {
+                t_x: x, t_y: y, t_sprite: sprtrail, t_frame: image_index,
+                t_xscale: draw_xscale * 1.3, t_yscale: draw_yscale * 1.3,
+                t_angle: draw_angle, t_alpha: trail_starting_alpha
+            });
+        }
+    } else { trail_timer = 0; }
+} else {
+    // Mouse Flip Logic
+    if (sprite_index != spreating) {
+        var _side = (mouse_x > x) ? global.size : -global.size;
+        if (draw_yscale != _side && sprite_index != sprturning) {
+            sprite_index = sprturning; image_index = 0; draw_yscale = _side; 
+        }
+    }
+    if (sprite_index == sprturning && image_index >= image_number - 1) {
+        sprite_index = sprnormal;
+    }
+    draw_xscale = global.size;
+}
 
-	if _xdir=1 && draw_xscale!=global.size{
-		if sprite_index!=spreating{
-			draw_xscale=global.size;draw_yscale=global.size;sprite_index=sprturning; image_index=0;
-		}	else	{
-			draw_xscale=draw_xscale;
-		};
-	};
+// Fade trail (Always run)
+for (var i = array_length(trail_list) - 1; i >= 0; i--) {
+    trail_list[i].t_alpha -= trail_fade_speed;
+    if (trail_list[i].t_alpha <= 0) { array_delete(trail_list, i, 1); }
+}
 
-	//	--- FLIP IMAGE ANGLE ---	//
+// --- 6. GAMEPLAY (EATING/POWERUPS) ---
+// (Keep your eating and combo logic here as it was)
+// ... [Eating Logic] ...
 
-	if draw_xscale=global.size{
-	draw_angle=lerp(draw_angle,-_ydir*50,delay);
-	}else if draw_xscale=-global.size{
-	draw_angle=lerp(draw_angle,_ydir*50,delay);
-	};
-
-	// --- TRAIL LOGIC --- //
-
-	// 1. ADDING TO THE TRAIL
-	// Check if we are sprinting AND actually moving (x or y changed)
-	if (sprint && (x != xprevious || y != yprevious)) { 
-	    trail_timer++;
+// --- EATING ENEMIES --- //
+if (global.state == "running" || global.state == "rage") {
+    var _fish = instance_place(x, y, Obj_fish);
+    if (_fish) {
+        if (_fish.eatable) {
+            alarm_set(1, 100);
+            combo_info[1]++;
+            combo_info[3]++;
+            global.size += global.growth;
+            exe_eating();
+            
+            if (random(11) > 10) { 
+                instance_create_layer(x, y, "Instances", Obj_bottle); 
+            }
+            instance_destroy(_fish);
+        } else {
+            global.state = "dead"; 
+            audio_play_sound(Snd_jaw, 1, false);
+        }
+    }
     
-	    // Once the timer hits our interval, drop a new ghost
-	    if (trail_timer >= trail_interval) {
-	        trail_timer = 0;
-        
-	        // Create a struct containing the player's exact visual state
-	        var _ghost = {
-	            t_x: x,
-	            t_y: y,
-	            t_sprite: sprtrail,
-	            t_frame: image_index,
-	            t_xscale: draw_xscale*1.3,
-	            t_yscale: draw_yscale*1.3,
-	            t_angle: draw_angle,
-	            t_alpha: trail_starting_alpha
-	        };
-        
-	        array_push(trail_list, _ghost);
-	    }
-	} else {
-	    // Reset timer if we stop moving or stop sprinting
-	    trail_timer = 0; 
-	}
-
-	// 2. FADING AND CLEANING UP THE TRAIL (Runs ALWAYS)
-	for (var i = array_length(trail_list) - 1; i >= 0; i--) {
-	    // Reduce the alpha
-	    trail_list[i].t_alpha -= trail_fade_speed;
-    
-	    // Delete fully invisible ghosts to save memory
-	    if (trail_list[i].t_alpha <= 0) {
-	        array_delete(trail_list, i, 1);
-	    }
-	}
-
-} else { //Follow mouse version
-	// ==========================================
-	// 1. ANGLE: Always point at the mouse
-	// ==========================================
-	//draw_angle = point_direction(x, y, mouse_x, mouse_y);
-
-
-	// ==========================================
-	// 2. FLIP: Handle the left/right mirroring
-	// ==========================================
-	if (sprite_index != spreating) {
-    
-	    // Calculate the target side based on mouse position
-	    // Right = positive size, Left = negative size
-	    var _side = (mouse_x > x) ? global.size : -global.size;
-
-	    // Trigger the turn animation ONLY if the side changed
-	    if (draw_yscale != _side && sprite_index != sprturning) {
-        
-	        // Start the animation
-	        sprite_index = sprturning;
-	        image_index = 0;
-        
-	        // FORCE the scales immediately so this 'if' statement doesn't loop
-	        //draw_xscale = _side;
-	        draw_yscale = _side; 
-	    }
-		print(_side)
-		print(draw_xscale)
-	}
-
-
-	// ==========================================
-	// 3. RESET: End the turn animation
-	// ==========================================
-	if (sprite_index == sprturning) {
-	    // If the animation reaches the final frame, go back to normal
-	    if (image_index >= image_number - 1) {
-	        sprite_index = sprnormal;
-	    }
-		
-		
-	}
-	
-	draw_xscale=global.size
+    if (global.state == "rage") { 
+        if (!exe_rage()) { exe_rage(); } 
+    } else { 
+        if (exe_rage()) { exe_rage(); } 
+    }
 }
 
-
-//}//else{
-	
-//	movex=
-	
-	
-	
-	
-	
-	
-//}
-
-
-
-
-//IF DEAD
-if global.state="dead"{x=9999 y=-9999 global.size=0};
-//show_debug_message(alarm[2]);
-
-//	--- EATING ENEMIES ---	//
-
-//iginal code
-
-if (global.state="running") || (global.state="rage") {
-
-	var _fish = instance_place(x,y,Obj_fish);//set to check which instance is meeting
-	if _fish{
-	if _fish.eatable{//checks if player is bigger than the fish
-		
-	alarm_set(1,100);combo_info[1]++;combo_info[3]++;//increase combo timer combo counter total eaten and size of the player
-	global.size+=global.growth;
-	
-	exe_eating()//play eating animation	
-	
-	var _bottlespawn=random(11);
-	if _bottlespawn>10{instance_create_layer(x,y,"Instances",Obj_bottle)};
-	
-	instance_destroy(_fish);
-	
-	}else{
-	global.state="dead" audio_play_sound(Snd_jaw,1,false)};
-	};
-	
-	if (global.state="rage"){ if !exe_rage() { exe_rage() } }else
-	{ if exe_rage() { exe_rage() } };
-	
-	
-};
-
-
-//new code
-/*
-if (global.state="running") || (global.state="rage") {
-	
-	if (global.state="rage"){ if !exe_rage() { exe_rage() } }else
-	{ if exe_rage() { exe_rage() } };
-	
-
-	if instance_exists(Obj_fish) && instance_place(x,y,Obj_fish) {
-		near_fish[0] = instance_place(x,y,Obj_fish)
-		near_fish[1] = instance_place(x,y,Obj_fish).size
-	}else{near_fish = [undefined,undefined]}
-
-	if !array_contains(near_fish,undefined) {
-	
-		var _perm_fish = near_fish
-	
-		if place_meeting(x,y,_perm_fish[0]) {
-		
-			if (_perm_fish[1] > global.size) {//& (_perm_fish[1] != global.size) {
-			
-				global.state="dead"				
-			
-			}else{instance_destroy(_perm_fish[0])}
-		
-		
-		}
-
-
+// --- COMBO --- //
+combo_info[0] = alarm[1];
+if (combo_info[0] > 0) {
+    if (combo_info[1] > combo_info[2]) { 
+        combo_info[2] = combo_info[1]; 
+    }
+} else {
+    combo_info[1] = 0;
 }
 
-
-
-	print("nearest fish: " + string(near_fish))
-}
-*/
-//	--- COMBO ---	//
-
-combo_info[0]=alarm[1];
-if combo_info[0]>0{
-	if (combo_info[1]>combo_info[2]){combo_info[2]=combo_info[1]}else{combo_info[2]=combo_info[2]};
-}else{combo_info[1]=0};
-
-//	--- POWERUPS ---	//
-var _bottle = instance_place(x,y,Obj_bottle);
-
-if _bottle{
-	if _bottle.iv_frames<900{
-	alarm_set(2,2500)
-	exe_eating()
-	powerup[0]=true;
-	powerup[1]=_bottle.image_index;
-	instance_destroy(_bottle);
-	};
-};
-
-if alarm[2]<1{
-	alarm_set(2,-1);
-	powerup[0]=false;
-	powerup[1]=-1;
-};
-
-if alarm[2]>0 {
-	
-	if (powerup[1]=2) {
-	
-		sneaking=true	
-	
-	}
-	
-	if (powerup[1]=3) {
-		
-		with(Obj_fish) {
-			
-			size=0.5
-		
-		}
-	}
-	
-	if (powerup[1]=4) {
-		
-		if (point_distance(x, y, Obj_fish.x, Obj_fish.y) < 10) {
-		
-			with(Obj_fish){x=lerp(x,Obj_fish.x,0.1) y=lerp(y,Obj_fish.y,0.1)}
-		
-		}
-	}	
+// --- POWERUPS --- //
+var _bottle = instance_place(x, y, Obj_bottle);
+if (_bottle) {
+    if (_bottle.iv_frames < 900) {
+        alarm_set(2, 2500);
+        exe_eating();
+        powerup[0] = true;
+        powerup[1] = _bottle.image_index;
+        instance_destroy(_bottle);
+    }
 }
 
-//print("final xscale: " +string(draw_xscale))
+if (alarm[2] < 1) {
+    alarm_set(2, -1);
+    powerup[0] = false;
+    powerup[1] = -1;
+} else {
+    if (powerup[1] == 2) {
+        sneaking = true;
+    }
+    if (powerup[1] == 3) {
+        with (Obj_fish) { size = 0.5; }
+    }
+    if (powerup[1] == 4) {
+        with (Obj_fish) {
+            // Evaluated correctly so the fish check distance to the PLAYER, not to the first fish created.
+            if (point_distance(other.x, other.y, x, y) < 10) { 
+                x = lerp(x, other.x, 0.1); 
+                y = lerp(y, other.y, 0.1);
+            }
+        }
+    }
+}
+
+// --- APPLY MOVEMENT --- //
+x = movex;
+y = movey;

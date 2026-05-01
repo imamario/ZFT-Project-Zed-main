@@ -42,21 +42,31 @@ draw_menu=[//audio
 	text2:"Filter: "
 }]
 
+temp_settings = global.settings
+saved = false
+
+
 
 //draw function to easily draw buttons
-draw_options = function(_text,_color,_size,_type=0) {
+draw_options = function(_x,_y,_text,_color,_size,_type=0) {
 	
 	switch(_type) {
 			
 	case 0:
 		
-		draw_text_scribble(300, 180, "[scaleStack," + string(_size) + "] [" + string(_color) + "]" + string(_text))
+		draw_text_scribble(_x, _y, "[scaleStack," + string(_size) + "] [" + string(_color) + "]" + string(_text))
 		
 	break;
 	
 	case 1:
 		
-		draw_text_scribble(230, 160, "[scaleStack," + string(_size) + "] [" + string(_color) + "]" + string(_text))
+		draw_text_scribble(_x, _y, "[scaleStack," + string(_size) + "] [" + string(_color) + "]" + string(_text))
+		
+	break;
+	
+	case 2:
+		
+		draw_text_scribble(_x, _y, "[scaleStack," + string(_size) + "] [" + string(_color) + "]" + string(_text))
 		
 	break;
 		

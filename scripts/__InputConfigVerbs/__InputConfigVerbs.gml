@@ -28,7 +28,7 @@ function __InputConfigVerbs()
     InputDefineVerb(INPUT_VERB.LEFT,    "left",       [vk_left,  "A"],    [-gp_axislh, gp_padl]);
     InputDefineVerb(INPUT_VERB.RIGHT,   "right",      [vk_right, "D"],    [ gp_axislh, gp_padr]);
     InputDefineVerb(INPUT_VERB.ACTION,  "action",      vk_enter,            gp_face3);
-    InputDefineVerb(INPUT_VERB.SPRINT, "sprint",     vk_shift,          [ gp_shoulderlb,gp_shoulderrb ]);
+    InputDefineVerb(INPUT_VERB.SPRINT, "sprint",     [vk_shift,vk_space],          [ gp_shoulderlb,gp_shoulderrb ]);
 	InputDefineVerb(INPUT_VERB.SNEAK,   "sneak",      vk_control,    [ gp_shoulderl,gp_shoulderr ]);
     
     if (INPUT_ON_SWITCH)

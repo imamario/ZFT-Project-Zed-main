@@ -10,9 +10,9 @@ function exe_rage() {
 	
 	
 	
-	if (!_exe) {
+	//if (!_exe) {
 	
-		if (global.state="rage") {
+		if (global.state="rage" && _exe) {
 	
 			layer_background_blend(_bg,c_gray)
 			//image_blend=c_maroon
@@ -27,7 +27,7 @@ function exe_rage() {
 			layer_enable_fx("Rage_eff",false)
 			return false
 			
-		};
+	//	};
 		
 		
 	};

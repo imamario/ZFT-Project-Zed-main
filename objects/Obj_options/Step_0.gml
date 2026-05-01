@@ -7,7 +7,7 @@ ydraw_scale=lerp(ydraw_scale,yscaleto,0.05)
 print(menu)
 
 switch(menu) {
-	
+	 
 	case TABS.INTRO:
 	
 		xto=32
@@ -24,3 +24,11 @@ switch(menu) {
 	
 	break;
 }
+
+
+print("mouse_x: " + string(mouse_x))
+print("mouse_y: " + string(mouse_y))
+
+
+
+
