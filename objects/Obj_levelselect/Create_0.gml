@@ -1,14 +1,17 @@
+
+
 //references for stage type
 enum STAGES {
 	
 	AKWARIUM,
 	TOILET,
 	PIPES,
-	SEWERS,
-	RIVER,
+	WASTE,
+	MUTANT,
 	WREAK,
-	SACRED,
-	OCEAN,
+	TEMPLE,
+	WATERFALL,
+	GUTS,
 	DOOMSDAYS,
 	LOCKED
 	
@@ -108,14 +111,24 @@ positions =[
 ]
 	
 	//knowing which stage picture it should show 
-	cur_stage=[0,Lv_akwarium,"akwarium"] //stage number(which stage it is), stage room, name of stage
+	cur_stage=[0,Lv_akwarium,Lv_akwarium,"akwarium"] //stage number(which stage it is, not level), stage room, stage boss room, name of stage
+	
+	max_stage=global.save[0]
+	max_level=global.save[1]
+	if max_level=0{max_level=1}
+	
 
+image_alpha=1
+img_alpha=0
+anim_x=0
+anim_y=1500
 
+anim_yscale=0
 
 draw_levels = function(image,index,xto,yto) {
 	
-	draw_sprite_ext(image,index,xto,yto,0.6533334,0.6211823,0,c_white,1)//draw the picture
-	draw_sprite_ext(Spr_portrait,0,xto,yto,0.6030293,0.602751,0,c_white,1)//draw the portrait
+	draw_sprite_ext(image,index,xto+anim_x,yto+anim_y,0.6533334,0.6211823*anim_yscale,0,c_white,image_alpha)//draw the picture
+	draw_sprite_ext(Spr_portrait,0,xto+anim_x,yto+anim_y,0.6030293,0.602751*anim_yscale,0,c_white,image_alpha)//draw the portrait
 	
 }
 

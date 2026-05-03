@@ -1,4 +1,4 @@
-global.save=[0,0] //stage and level
+global.save=[0,1] //stage and level
 global.level = [0,0] //stage and level
 
 global.font = font_add_sprite_ext(Spr_font,"$qc.?!()wemavk8o9gzx2ruj6ydnb0ps47l%/1iht3f5v÷+×='_-:",true,0)
