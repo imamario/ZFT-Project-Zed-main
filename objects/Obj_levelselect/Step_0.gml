@@ -21,6 +21,24 @@ var _button = [
 	
 ]
 
+switch(cur_stage[0]) {
+	
+	case 0:
+	cur_stage[1] = Lv_akwarium
+	cur_stage[2] = "akwarium"
+	break;
+	
+	case 1:
+	cur_stage[1] = Lv_Toiletdoom
+	cur_stage[2] = "toilet of doom"
+	break;
+	
+	
+	
+}
+
+
+
 if mouse_check_button_pressed(mb_left) {
 	
 	if _button[0] {

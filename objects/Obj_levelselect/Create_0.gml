@@ -9,7 +9,8 @@ enum STAGES {
 	WREAK,
 	SACRED,
 	OCEAN,
-	DOOMSDAYS
+	DOOMSDAYS,
+	LOCKED
 	
 }
 
@@ -107,8 +108,7 @@ positions =[
 ]
 	
 	//knowing which stage picture it should show 
-	cur_stage=[0,Lv_akwarium,"[blink]akwarium"] //stage number(which stage it is), stage room, name of stage
-
+	cur_stage=[0,Lv_akwarium,"akwarium"] //stage number(which stage it is), stage room, name of stage
 
 
 

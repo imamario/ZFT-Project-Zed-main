@@ -50,6 +50,6 @@ function settings_reload(argument0) {
 //#macro Windows:MOBILE false
 //#macro Mobile:MOBILE true
 #macro MOBILE false
-#macro FOLLOW_MOUSE false
+#macro FOLLOW_MOUSE true
 
 
