@@ -196,9 +196,9 @@ if (alarm[2] < 1) {
     if (powerup[1] == 4) {
         with (Obj_fish) {
             // Evaluated correctly so the fish check distance to the PLAYER, not to the first fish created.
-            if (point_distance(other.x, other.y, x, y) < 10) { 
-                x = lerp(x, other.x, 0.1); 
-                y = lerp(y, other.y, 0.1);
+            if (point_distance(Obj_player.x, Obj_player.y, x, y) < 10) { 
+                x = lerp(x, Obj_player.x, 0.1); 
+                y = lerp(y, Obj_player.y, 0.1);
             }
         }
     }

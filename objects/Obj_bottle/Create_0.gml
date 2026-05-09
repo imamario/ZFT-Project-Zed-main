@@ -1,5 +1,5 @@
 randomise();
-image_index=1;
+image_index=4;
 iv_frames=1000
 
 size=0.3

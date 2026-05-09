@@ -11,6 +11,7 @@ function exe_rage() {
 	
 	
 	//if (!_exe) {
+	/* old way, using a effect layer for the effect
 	
 		if (global.state="rage" && _exe) {
 	
@@ -26,10 +27,29 @@ function exe_rage() {
 			//image_blend=c_white
 			layer_enable_fx("Rage_eff",false)
 			return false
+	
+	*///new way, using the camera instead
+		
+		if instance_exists(Obj_cam) {
+		
+				if (global.state="rage" && _exe) {
+	
+				with(Obj_cam)
+				//image_blend=c_maroon
+				layer_enable_fx("Rage_eff",true)
+				return true
 			
-	//	};
+			
+			}else{
+	
+				layer_background_blend(_bg,c_white)
+				//image_blend=c_white
+				layer_enable_fx("Rage_eff",false)
+				return false
+			};
 		
+		}else{return false};
+			
 		
-	};
 	
 };

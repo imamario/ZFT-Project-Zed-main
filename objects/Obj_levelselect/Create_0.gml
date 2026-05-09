@@ -1,7 +1,7 @@
-
+save()
 
 //references for stage type
-enum STAGES {
+enum STAGE {
 	
 	AKWARIUM,
 	TOILET,

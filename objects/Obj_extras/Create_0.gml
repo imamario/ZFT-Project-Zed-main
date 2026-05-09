@@ -23,7 +23,7 @@ concept=[
 	tittle: "Old LevelSelect",
 	image: Spr_bouncepoison,
 	top_text: "Cool on paper",
-	bottom_text: "but the new one is better",
+	bottom_text: "but had lower quality image",
 	reason: "Not accurate and not flexable",
 	Added_version: "5.6",
 	version_removal: "8.0"	

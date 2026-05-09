@@ -57,7 +57,7 @@ delay=0.1;
 can_spawn=true;
 if !FOLLOW_MOUSE { delay=0.08 }
 
-powerup=[false,-1];
+powerup=[false,-1]; //on powerup?, type (by default -1 which is none)
 
 _xdir= 0;
 _ydir= 0;

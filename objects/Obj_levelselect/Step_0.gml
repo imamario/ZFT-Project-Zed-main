@@ -1,3 +1,4 @@
+
 if anim_yscale!=1{anim_yscale=lerp(anim_yscale,1,0.1)}
 
 if anim_y>1 {anim_y=lerp(anim_y,0,0.07)}
@@ -7,7 +8,7 @@ else
 	if (img_alpha<1){img_alpha+=0.03}
 	
 }
-
+if (img_alpha<1)exit;
 var _button = [
 
 	//top left
@@ -36,10 +37,15 @@ switch(cur_stage[0]) {
 	cur_stage[3] = "how are you here?"
 	break;
 	
+	case -1:
+	cur_stage[1] = Lv_akwarium
+	cur_stage[3] = "tutorial"
+	break;
+		
 	case 0:
 	cur_stage[1] = Lv_akwarium
 	cur_stage[3] = "akwarium"
-	break;
+	break;	
 	
 	case 1:
 	cur_stage[1] = Lv_Toiletdoom
@@ -89,7 +95,64 @@ switch(cur_stage[0]) {
 }
 
 
+if mouse_check_button_pressed(mb_left) {
+	
+	// --- NEW LOGIC: How many levels are unlocked on the screen we are looking at? ---
+	var _lv_unlocked = 0;
+	
+	if (cur_stage[0] < max_stage) {
+		// If we are looking at a PREVIOUS stage, all 5 levels are completely unlocked!
+		_lv_unlocked = 5; 
+	} else if (cur_stage[0] == max_stage) {
+		// If we are looking at our CURRENT furthest stage, use max_level.
+		_lv_unlocked = max_level;
+	}
+	// --------------------------------------------------------------------------------
+	
+	// Now, instead of checking max_stage and max_level, we check _lv_unlocked!
+	if (_lv_unlocked > 0) && (cur_stage[0]!=-1){
+	
+		if _button[0] && (_lv_unlocked > 0)  {
+			global.level=[cur_stage[0],0]
+			room_goto(cur_stage[1])
+		}
+	
+		if _button[1] && (_lv_unlocked > 1) {
+			global.level=[cur_stage[0],1]
+			room_goto(cur_stage[1])
+		}
+	
+		if _button[2] && (_lv_unlocked > 2) {
+			global.level=[cur_stage[0],2]
+			room_goto(cur_stage[1])
+		}	
 
+		if _button[3] && (_lv_unlocked > 3) {
+			global.level=[cur_stage[0],3]
+			room_goto(cur_stage[1])
+		}
+	
+		if _button[4] && (_lv_unlocked > 4) {
+			global.level=[cur_stage[0],4]
+			room_goto(cur_stage[1])
+		}
+	}else{ if _button[4] {show_message("tp for tutorial right here!")} }
+	
+	// Navigation arrows (I added clamps here so you don't go below stage 0!)
+	if _button[5] && (cur_stage[0] > -1) {
+		anim_yscale = -1
+		cur_stage[0]--
+	}
+	
+	if _button[6] && (cur_stage[0] < 9) { // Assuming 9 is your max possible stage
+		anim_yscale = -1
+		cur_stage[0]++
+	}
+		
+	print(global.level)
+}
+print(cur_stage[0])
+/*
 if mouse_check_button_pressed(mb_left) {
 	
 	if (cur_stage[0]<max_stage) || (cur_stage[0]=max_stage)  {
