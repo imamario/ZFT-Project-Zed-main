@@ -1,4 +1,5 @@
 /// @description Fish Spawner
+if (global.state == "starting")exit;
 randomise();
 if can_spawn{
 

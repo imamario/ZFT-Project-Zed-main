@@ -1,4 +1,5 @@
 // --- 1. PRE-CHECKS ---
+if (global.state == "starting")exit;
 if (global.state == "victory") {
     x = 9999; y = -9999; global.size = 0; can_spawn = false;
     if (exe_rage()) { exe_rage(); }
@@ -10,6 +11,9 @@ if (instance_exists(Obj_debug)) { _debug_enabled = Obj_debug.enabled; }
 if (!_debug_enabled && keyboard_check(ord("R"))) { full_restart(); }
 
 randomise();
+
+//if keyboard_check_pressed(vk_f1) { print(_play
+
 
 // --- 2. INPUTS ---
 left = InputCheck(INPUT_VERB.LEFT);
@@ -34,6 +38,7 @@ if (global.state != "rage") {
     if (!sneaking && sprint) { spd = 50; }
     else if (sneaking && !sprint) { spd = 10; }
     else { spd = 25; }
+	InputColorSet(c_maroon)
 }
 
 // Store direction globally (no 'var') so Draw event sees it
@@ -41,9 +46,9 @@ _xdir = right - left;
 _ydir = down - up;
 
 if (!FOLLOW_MOUSE) {
-    var _mult = (powerup[1] != 0) ? 1 : -1;
-    xto += _xdir * spd * _mult;
-    yto += _ydir * spd * _mult;
+    
+    xto += _xdir * spd
+    yto += _ydir * spd
     movex = lerp(x, xto, delay);
     movey = lerp(y, yto, delay);
 } else {
@@ -171,17 +176,8 @@ if (combo_info[0] > 0) {
 }
 
 // --- POWERUPS --- //
-var _bottle = instance_place(x, y, Obj_bottle);
-if (_bottle) {
-    if (_bottle.iv_frames < 900) {
-        alarm_set(2, 2500);
-        exe_eating();
-        powerup[0] = true;
-        powerup[1] = _bottle.image_index;
-        instance_destroy(_bottle);
-    }
-}
 
+/*
 if (alarm[2] < 1) {
     alarm_set(2, -1);
     powerup[0] = false;
@@ -196,13 +192,25 @@ if (alarm[2] < 1) {
     if (powerup[1] == 4) {
         with (Obj_fish) {
             // Evaluated correctly so the fish check distance to the PLAYER, not to the first fish created.
-            if (point_distance(Obj_player.x, Obj_player.y, x, y) < 10) { 
-                x = lerp(x, Obj_player.x, 0.1); 
-                y = lerp(y, Obj_player.y, 0.1);
+			with(Obj_fish) {
+	            if (point_distance(Obj_player.x, Obj_player.y, x, y) < 10) { 
+	                x = lerp(x, Obj_player.x, 0.1); 
+	                y = lerp(y, Obj_player.y, 0.1);
+				}
             }
         }
     }
 }
+*/
+
+
+
+
+
+
+
+
+
 
 // --- APPLY MOVEMENT --- //
 x = movex;

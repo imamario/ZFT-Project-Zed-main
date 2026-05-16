@@ -48,7 +48,9 @@ time += 0.05;
 
 image_xscale=lerp(image_xscale,draw_size,0.05)
 //image_yscale=lerp(image_yscale,size,0.1)
-
+if instance_exists(Obj_cam){
+	if Obj_cam.raged{image_blend=c_red}
+}
 
 
 

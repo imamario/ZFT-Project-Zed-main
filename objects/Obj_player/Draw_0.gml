@@ -1,4 +1,5 @@
 // --- 1. SET UP COLORS ---
+if (global.state == "starting")exit;
 // Move choose out of the loop so the whole trail flashes together, or keep inside for rainbow
 var _trailcolor = choose(c_green, c_lime, #a0db39, #5c9200);
 

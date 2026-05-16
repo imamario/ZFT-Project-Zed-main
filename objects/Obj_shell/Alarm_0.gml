@@ -1,0 +1,5 @@
+print("curstate: " + string(curstate))
+print("Timer: " + string(timer))
+print("img_angle[0] Upper: " + string(img_angle[0]))
+print("img_angle[1] Bottom: " + string(img_angle[1]))
+alarm_set(0,5)

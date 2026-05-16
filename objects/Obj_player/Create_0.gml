@@ -1,4 +1,4 @@
-
+xprevious_scale=0
 
 
 do_basics = function(){
@@ -33,14 +33,16 @@ yto=y;
 
 global.size=0.6;
 global.state="running";
+global.state="starting";
 global.growth=0.005;
-global.powers=[0,0,0]
+global.powers=[-1,-1,-1]
+global.powerup=0; //on powerup?, type (by default -1 which is none)
 
 draw_xscale=global.size;
 draw_yscale=global.size;
 draw_angle=global.size;
 
-alarm[0]=100;
+alarm_set(0,300);
 
 near_fish = [undefined,undefined] // id of the fish and size
 fish_bigger = false
@@ -57,7 +59,7 @@ delay=0.1;
 can_spawn=true;
 if !FOLLOW_MOUSE { delay=0.08 }
 
-powerup=[false,-1]; //on powerup?, type (by default -1 which is none)
+
 
 _xdir= 0;
 _ydir= 0;

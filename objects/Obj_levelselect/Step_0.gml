@@ -1,3 +1,4 @@
+if start>0{start-=0.05}
 
 if anim_yscale!=1{anim_yscale=lerp(anim_yscale,1,0.1)}
 

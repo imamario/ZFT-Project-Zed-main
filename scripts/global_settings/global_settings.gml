@@ -8,6 +8,7 @@ return show_debug_message(argument)
 global.settings={
 	audio : [1, 1], //Music and SFX
 	graphic : [1920, 1280, 0, false], //resolution (width and height) antialising and fullscreen
+	filter : ["NORMAL","NES"] //secret setting
 }
 
 

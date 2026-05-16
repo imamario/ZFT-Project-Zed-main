@@ -1,4 +1,4 @@
-
+if (global.state == "starting")exit;
 
 
 

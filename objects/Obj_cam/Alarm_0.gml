@@ -1,4 +1,4 @@
-//alarm for glitchy text animation
+//alarm for glitchy text animation //unused
 randomise()
 var _val = random_range(-45,45)
 

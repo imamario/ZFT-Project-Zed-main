@@ -60,9 +60,25 @@ if (keyboard_check_pressed(vk_enter)) {
                 }
             break;
 
+			case "room_reset":
+			
+				room_restart()
+				
+			break;
+			
+			case "global.state_set":
+			
+				global.state = (_val_string);
+				show_message("Successefully changed to: " + string(global.state));
+			
+			break;
+			
             default:
                 show_debug_message("Unknown command: " + _actual_cmd);
             break;
+			
+			
+			
         }
 
         keyboard_string = ""; 

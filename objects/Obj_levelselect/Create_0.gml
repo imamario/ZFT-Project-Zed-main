@@ -1,5 +1,8 @@
 save()
 
+start=1
+ending=0
+
 //references for stage type
 enum STAGE {
 	

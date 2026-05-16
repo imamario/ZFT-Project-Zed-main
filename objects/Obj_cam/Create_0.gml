@@ -1,7 +1,8 @@
 // Camera setup
 alarm_set(0,200)
 spin=0
-
+raged=false
+trans=0
 
 image_alpha=0
 enablejoystick=0.5

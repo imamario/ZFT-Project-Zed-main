@@ -16,9 +16,17 @@
   ],
   "isDnd":false,
   "layers":[
-    {"$GMREffectLayer":"","%Name":"Rage_eff","depth":0,"effectEnabled":true,"effectType":"_filter_tintfilter","gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"name":"Rage_eff","properties":[
-        {"name":"g_TintCol","type":1,"value":"#FF2D2D99",},
-      ],"resourceType":"GMREffectLayer","resourceVersion":"2.0","userdefinedDepth":false,"visible":true,},
+    {"$GMREffectLayer":"","%Name":"Rage_eff","depth":0,"effectEnabled":true,"effectType":"_filter_colour_balance","gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"name":"Rage_eff","properties":[
+        {"name":"g_ColourBalanceShadows","type":0,"value":"-0.1",},
+        {"name":"g_ColourBalanceShadows","type":0,"value":"-0.65",},
+        {"name":"g_ColourBalanceShadows","type":0,"value":"-0.4",},
+        {"name":"g_ColourBalanceMidtones","type":0,"value":"1",},
+        {"name":"g_ColourBalanceMidtones","type":0,"value":"-0.1",},
+        {"name":"g_ColourBalanceMidtones","type":0,"value":"-0.4",},
+        {"name":"g_ColourBalanceHighlights","type":0,"value":"1",},
+        {"name":"g_ColourBalanceHighlights","type":0,"value":"1",},
+        {"name":"g_ColourBalanceHighlights","type":0,"value":"1",},
+      ],"resourceType":"GMREffectLayer","resourceVersion":"2.0","userdefinedDepth":false,"visible":false,},
     {"$GMRInstanceLayer":"","%Name":"Instances","depth":100,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[
         {"$GMRInstance":"v4","%Name":"inst_1BD2DD84_1","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_1BD2DD84_1","objectId":{"name":"Obj_player","path":"objects/Obj_player/Obj_player.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":960.0,"y":864.0,},
         {"$GMRInstance":"v4","%Name":"inst_11F91C85","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_11F91C85","objectId":{"name":"Obj_shell","path":"objects/Obj_shell/Obj_shell.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":1984.0,"y":704.0,},
