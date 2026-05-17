@@ -1,5 +1,5 @@
 // --- 1. PRE-CHECKS ---
-if (global.state == "starting")exit;
+if (global.state == "paused")exit;
 if (global.state == "victory") {
     x = 9999; y = -9999; global.size = 0; can_spawn = false;
     if (exe_rage()) { exe_rage(); }
@@ -174,6 +174,12 @@ if (combo_info[0] > 0) {
 } else {
     combo_info[1] = 0;
 }
+
+if Obj_water.y<y
+
+
+
+
 
 // --- POWERUPS --- //
 

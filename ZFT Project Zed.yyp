@@ -230,6 +230,7 @@
     {"id":{"name":"Obj_pfish","path":"objects/Obj_pfish/Obj_pfish.yy",},},
     {"id":{"name":"Obj_player","path":"objects/Obj_player/Obj_player.yy",},},
     {"id":{"name":"Obj_savelvl","path":"objects/Obj_savelvl/Obj_savelvl.yy",},},
+    {"id":{"name":"Obj_scientist","path":"objects/Obj_scientist/Obj_scientist.yy",},},
     {"id":{"name":"Obj_selectable","path":"objects/Obj_selectable/Obj_selectable.yy",},},
     {"id":{"name":"Obj_shell","path":"objects/Obj_shell/Obj_shell.yy",},},
     {"id":{"name":"Obj_sign","path":"objects/Obj_sign/Obj_sign.yy",},},
@@ -316,6 +317,7 @@
     {"id":{"name":"Obj_toiletdirt","path":"objects/Obj_toiletdirt/Obj_toiletdirt.yy",},},
     {"id":{"name":"Obj_wall","path":"objects/Obj_wall/Obj_wall.yy",},},
     {"id":{"name":"Obj_water","path":"objects/Obj_water/Obj_water.yy",},},
+    {"id":{"name":"Lv_akwarium_boss","path":"rooms/Lv_akwarium_boss/Lv_akwarium_boss.yy",},},
     {"id":{"name":"Lv_akwarium","path":"rooms/Lv_akwarium/Lv_akwarium.yy",},},
     {"id":{"name":"Lv_Toiletdoom","path":"rooms/Lv_Toiletdoom/Lv_Toiletdoom.yy",},},
     {"id":{"name":"Rm_building","path":"rooms/Rm_building/Rm_building.yy",},},
@@ -1072,6 +1074,7 @@
     {"roomId":{"name":"Room_Steam_Timeline","path":"rooms/Room_Steam_Timeline/Room_Steam_Timeline.yy",},},
     {"roomId":{"name":"Room_Steam_UGC","path":"rooms/Room_Steam_UGC/Room_Steam_UGC.yy",},},
     {"roomId":{"name":"Room_Steam_Init","path":"rooms/Room_Steam_Init/Room_Steam_Init.yy",},},
+    {"roomId":{"name":"Lv_akwarium_boss","path":"rooms/Lv_akwarium_boss/Lv_akwarium_boss.yy",},},
   ],
   "templateType":"game",
   "TextureGroups":[

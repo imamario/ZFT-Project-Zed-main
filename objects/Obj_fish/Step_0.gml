@@ -1,3 +1,4 @@
+if (global.state=="paused")exit;
 if (size < global.size) || (size == global.size) {
 
 	eatable=true

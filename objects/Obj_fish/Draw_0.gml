@@ -1,3 +1,4 @@
+if (global.state=="paused")exit;
 var _bal = 0
 
 if sign(size)<0 { _bal=-size } else { _bal=size }

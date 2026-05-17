@@ -1,9 +1,10 @@
 // Camera setup
+
 alarm_set(0,200)
 spin=0
 raged=false
 trans=0
-
+previous_state="paused"
 image_alpha=0
 enablejoystick=0.5
 global.cutscene=false

@@ -1,4 +1,4 @@
-if (global.state=="starting")exit;
+if (global.state=="paused")exit;
 switch(room){
 	
 	case Lv_Toiletdoom:

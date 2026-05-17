@@ -21,37 +21,29 @@ if raged {
 }
 
 //stating menu before starting the match / pause menu
-if (global.state=="starting") {
+if (global.state=="paused") {
 	
-xresult += (-keyboard_check_pressed(ord("O")) +keyboard_check_pressed(ord("P"))) * 10
-yresult += (-keyboard_check_pressed(ord("K")) +keyboard_check_pressed(ord("L"))) * 10
+	draw_set_alpha(0.50)
+	draw_rectangle_color(_x1, _y1, _x1 + _vw, _y1 + _vh,
+		c_black,c_black,c_black,c_black,false
+	)
+	draw_set_alpha(1)
 
-if keyboard_check_pressed(vk_space) {
-	
-	show_message(["xresult: " + string(xresult), "yresult: " + string(yresult)]) 
-	
+	draw_sprite_ext(Spr_box,0,_x1,_y1,2.5+0.08,1.5+0.17,0,image_blend,1)
+	draw_sprite_ext(Spr_playselection_normal,0,x+30,y+410,1,1,0,c_white,1)
+
+
+		if mouse_check_button_pressed(mb_left) { 
+			//show_message(["mouse_x: " + string(mouse_x - x), "mouse_y: " + string(mouse_y - y)]) 	
+			if point_in_rectangle(mouse_x,mouse_y,x-302,y+367,x+357,y+450) { repeat(10) { instance_activate_all() audio_resume_all(); global.state=("running") } }//show_message("initiated!") global.state="running" }
+	}
 }
 
 
-draw_set_alpha(0.50)
-draw_rectangle_color(_x1, _y1, _x1 + _vw, _y1 + _vh,
-	c_black,c_black,c_black,c_black,false
-)
-draw_set_alpha(1)
+if (global.state=="victory") {
 
-draw_sprite_ext(Spr_box,0,_x1,_y1,2.5+0.08,1.5+0.17,0,image_blend,1)
-draw_sprite_ext(Spr_playselection_normal,0,x+30,y+410,1,1,0,c_white,1)
-
-if mouse_check_button_pressed(mb_left) { 
+	instance_deactivate_all(true) instance_activate_object(Obj_player) instance_activate_object(Obj_debug)
 	
-	//show_message(["mouse_x: " + string(mouse_x - x), "mouse_y: " + string(mouse_y - y)]) 	
-	if point_in_rectangle(mouse_x,mouse_y,x-302,y+367,x+357,y+450) { global.state=("running") }//show_message("initiated!") global.state="running" }
-
-}
-
-
-
-
 
 
 }

@@ -33,7 +33,7 @@ yto=y;
 
 global.size=0.6;
 global.state="running";
-global.state="starting";
+global.state="paused";
 global.growth=0.005;
 global.powers=[-1,-1,-1]
 global.powerup=0; //on powerup?, type (by default -1 which is none)

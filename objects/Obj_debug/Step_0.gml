@@ -73,9 +73,23 @@ if (keyboard_check_pressed(vk_enter)) {
 			
 			break;
 			
-            default:
+            case "return_menu":
+			
+				room_goto(Rm_menu);
+			
+			break;
+			
+			case "room_goto":
+			
+				room_goto(_val_string)
+		
+			break;
+			
+			
+			default:
                 show_debug_message("Unknown command: " + _actual_cmd);
             break;
+			
 			
 			
 			
