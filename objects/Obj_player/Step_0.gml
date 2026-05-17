@@ -45,24 +45,73 @@ var _input_x = right - left;
 var _input_y = down - up;
 
 if (!FOLLOW_MOUSE) {
-    movex = lerp(movex, _input_x * spd, delay);
+	
+	if instance_exists(Obj_water) {
+	
+	
+		if (Obj_water.y>y) {
+			movey += grv;
+			if (up) && (place_meeting(x,y,Obj_water.bbox_top)) {
+			spd = 0
+			left = 0
+			right = 0
+			down = 0
+			movey += vsp_jump
+			}
+		}else{
+			movex = lerp(movex, _input_x * spd, delay);
+			movey = lerp(movey, _input_y * spd, delay);
+		}
+	}else{
+	
+	movex = lerp(movex, _input_x * spd, delay);
     movey = lerp(movey, _input_y * spd, delay);
+
+	}	
 } 
-else {
-    var _dist = point_distance(x, y, mouse_x, mouse_y);
-    if (_debug_enabled) _dist = 0;
+else {//follow mouse version
+	
+	if instance_exists(Obj_water) {
+				
+		if Obj_water.y>y{movey += grv;};
+		if (Obj_water.water_colision()) {
+		
+			spd = 0;
+			left = 0;
+			right = 0;
+			down = 0;
+			movey += vsp_jump;	
+		}else{
+			var _dist = point_distance(x, y, mouse_x, mouse_y);
+		    if (_debug_enabled) _dist = 0;
     
-    if (_dist > _range) {
-        var _dir = point_direction(x, y, mouse_x, mouse_y);
-        movex = lerp(movex, lengthdir_x(spd, _dir), delay);
-        movey = lerp(movey, lengthdir_y(spd, _dir), delay);
+		    if (_dist > _range) {
+		        var _dir = point_direction(x, y, mouse_x, mouse_y);
+		        movex = lerp(movex, lengthdir_x(spd, _dir), delay);
+		        movey = lerp(movey, lengthdir_y(spd, _dir), delay);
         
-        draw_angle += angle_difference(_dir, draw_angle) * 0.12;
-    } else {
-        movex = lerp(movex, 0, delay * 0.7);
-        movey = lerp(movey, 0, delay * 0.7);
-    }
-}
+		        draw_angle += angle_difference(_dir, draw_angle) * 0.12;
+		    } else {
+		        movex = lerp(movex, 0, delay * 0.7);
+		        movey = lerp(movey, 0, delay * 0.7);
+		    }
+		}			
+	}else{	
+		    var _dist = point_distance(x, y, mouse_x, mouse_y);
+		    if (_debug_enabled) _dist = 0;
+    
+		    if (_dist > _range) {
+		        var _dir = point_direction(x, y, mouse_x, mouse_y);
+		        movex = lerp(movex, lengthdir_x(spd, _dir), delay);
+		        movey = lerp(movey, lengthdir_y(spd, _dir), delay);
+        
+		        draw_angle += angle_difference(_dir, draw_angle) * 0.12;
+		    } else {
+		        movex = lerp(movex, 0, delay * 0.7);
+		        movey = lerp(movey, 0, delay * 0.7);
+		}
+	}
+}//end of mouse movimentation
 
 // Store direction for visuals
 _xdir = sign(_input_x);
@@ -101,8 +150,11 @@ if (!FOLLOW_MOUSE) {
     }
     xprevious_scale = draw_xscale;
     
-    draw_angle = lerp(draw_angle, (draw_xscale > 0 ? -_ydir : _ydir) * 50, delay);
-
+	if instance_exists(Obj_water) {	
+		if (Obj_water.y<y) {
+			draw_angle = lerp(draw_angle, (draw_xscale > 0 ? -_ydir : _ydir) * 50, delay);
+		}else{draw_angle = lerp(draw_angle,movey*2,delay);}
+	}
     // Trail
     if (sprint && (abs(movex) > 1 || abs(movey) > 1)) {
         trail_timer++;
@@ -179,6 +231,10 @@ if (combo_info[0] > 0) {
     combo_info[1] = 0;
 }
 if keyboard_check_pressed(vk_space) { show_message(["movex: " + string(movex),"movey: " + string(movey)]) }
+
+
+
+
 
 
 

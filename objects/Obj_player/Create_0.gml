@@ -1,5 +1,3 @@
-xprevious_scale=0
-
 
 do_basics = function(){
 	if !instance_exists(Obj_cam){instance_create_depth(x,y,-9999,Obj_cam)};
@@ -19,7 +17,7 @@ full_restart = function(){
 
 
 
-
+xprevious_scale=0
 do_basics()
 _range=20
 
@@ -71,6 +69,11 @@ up=0;
 sprint=0;
 sneak=0
 sneaking=false
+
+//for out of water
+vsp = 0;        // vertical speed
+grv = 0.5;      // gravity
+vsp_jump = -7;  // jump strength (negative = upward)   
 
 // Initialize the array that will hold our trail data
 trail_list = [];

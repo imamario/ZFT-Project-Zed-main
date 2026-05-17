@@ -85,6 +85,14 @@ if (keyboard_check_pressed(vk_enter)) {
 		
 			break;
 			
+			case "fish_spawn_switch":
+			
+			Obj_player.can_spawn=!Obj_player.can_spawn	
+			show_message("Obj_player.can_spawn = " + string(Obj_player.can_spawn))
+			
+			
+			break;
+			
 			
 			default:
                 show_debug_message("Unknown command: " + _actual_cmd);
