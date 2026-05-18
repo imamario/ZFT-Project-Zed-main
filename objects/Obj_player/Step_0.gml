@@ -1,4 +1,14 @@
 // --- 1. PRE-CHECKS ---
+
+
+
+
+
+
+
+
+
+
 if (global.state == "paused") exit;
 if (global.state == "victory") {
     x = 9999; y = -9999; global.size = 0; can_spawn = false;
@@ -73,45 +83,26 @@ else {//follow mouse version
 	
 	if instance_exists(Obj_water) {
 				
-		if Obj_water.y>y{movey += grv;};
-		if (Obj_water.water_colision()) {
+		if Obj_water.y>y{
+				movey += grv;
+			if (Obj_water.water_colision()) && (Obj_water.y>y) {
 		
-			spd = 0;
-			left = 0;
-			right = 0;
-			down = 0;
-			movey += vsp_jump;	
+					spd = 0;
+					left = 0;
+					right = 0;
+					down = 0;
+					movey += vsp_jump;
+		};
 		}else{
-			var _dist = point_distance(x, y, mouse_x, mouse_y);
-		    if (_debug_enabled) _dist = 0;
-    
-		    if (_dist > _range) {
-		        var _dir = point_direction(x, y, mouse_x, mouse_y);
-		        movex = lerp(movex, lengthdir_x(spd, _dir), delay);
-		        movey = lerp(movey, lengthdir_y(spd, _dir), delay);
-        
-		        draw_angle += angle_difference(_dir, draw_angle) * 0.12;
-		    } else {
-		        movex = lerp(movex, 0, delay * 0.7);
-		        movey = lerp(movey, 0, delay * 0.7);
-		    }
-		}			
-	}else{	
-		    var _dist = point_distance(x, y, mouse_x, mouse_y);
-		    if (_debug_enabled) _dist = 0;
-    
-		    if (_dist > _range) {
-		        var _dir = point_direction(x, y, mouse_x, mouse_y);
-		        movex = lerp(movex, lengthdir_x(spd, _dir), delay);
-		        movey = lerp(movey, lengthdir_y(spd, _dir), delay);
-        
-		        draw_angle += angle_difference(_dir, draw_angle) * 0.12;
-		    } else {
-		        movex = lerp(movex, 0, delay * 0.7);
-		        movey = lerp(movey, 0, delay * 0.7);
+// Mouse following
+				follow_MS(_debug_enabled)
+
 		}
+	}else{	
+			follow_MS(_debug_enabled)
 	}
 }//end of mouse movimentation
+
 
 // Store direction for visuals
 _xdir = sign(_input_x);
@@ -230,7 +221,7 @@ if (combo_info[0] > 0) {
 } else {
     combo_info[1] = 0;
 }
-if keyboard_check_pressed(vk_space) { show_message(["movex: " + string(movex),"movey: " + string(movey)]) }
+//if keyboard_check_pressed(vk_space) { show_message(["movex: " + string(movex),"movey: " + string(movey)]) }
 
 
 

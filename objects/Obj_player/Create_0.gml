@@ -19,7 +19,7 @@ full_restart = function(){
 
 xprevious_scale=0
 do_basics()
-_range=20
+_range=50
 
 
 
@@ -57,6 +57,25 @@ delay=0.1;
 can_spawn=true;
 if !FOLLOW_MOUSE { delay=0.08 }
 
+// Define the mouse follow function
+follow_MS = function(_debug_enb) {
+    var _dist = point_distance(x, y, mouse_x, mouse_y);
+    if (_debug_enb) _dist = 0;
+    
+    if (_dist > _range) {
+        var _dir = point_direction(x, y, mouse_x, mouse_y);
+        
+        movex = lerp(movex, lengthdir_x(spd, _dir), 0.35);
+        movey = lerp(movey, lengthdir_y(spd, _dir), 0.35);
+        
+        draw_angle += angle_difference(_dir, draw_angle) * 0.15;
+    }
+    else {
+        movex = lerp(movex, 0, 0.45);
+        movey = lerp(movey, 0, 0.45);
+    }
+};
+
 
 
 _xdir= 0;
@@ -93,6 +112,9 @@ sprnormal = Spr_pwalk
 spreating = Spr_peating
 sprturning = Spr_pturning
 sprtrail = Spr_trailbubble
+
+
+
 
 /*
 switch(room) {
