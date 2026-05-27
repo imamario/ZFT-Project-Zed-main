@@ -2,9 +2,9 @@ randomise();
 image_index=4;
 iv_frames=1000
 
+image_xscale=0
+image_yscale=0
+
 size=0.3
-image_xscale=size
-image_yscale=size
-Onpower=false
-
-
+movey=-10
+eatable=false

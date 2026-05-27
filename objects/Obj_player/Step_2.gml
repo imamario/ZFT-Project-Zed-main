@@ -1,4 +1,4 @@
-if (global.state == "paused")exit;
+if (global.state == "paused")||(global.state == "cutscene") exit;
 
 
 
@@ -7,18 +7,21 @@ image_yscale=1;
 image_angle=0;
 
 
+if !array_contains(global.bossrooms,room) {
+	if (global.size>1.5) && (global.state!="victory") {
+	
+		global.state="rage";
+	
+	};
 
-if (global.size>1.5) && (global.state!="victory") {
+	if (global.state="rage") {
 	
-	global.state="rage";
+		if (alarm[3]=-1) {alarm_set(3,1500)}
 	
+	};
 };
-
-if (global.state="rage") {
-	
-	if (alarm[3]=-1) {alarm_set(3,1500)}
-	
-};
-
 //IF DEAD
-if (global.state="dead") || (global.state="victory") {x=9999 y=-9999 global.size=0 can_spawn=false}
+if (global.state="dead") || (global.state="victory") {
+	if (global.state="dead") && (sprite_index != sprblood) { image_index = 0; sprite_index = sprblood; };
+
+	x=9999 y=-9999 global.size=0 can_spawn=false}

@@ -3,13 +3,17 @@ function print(argument){
 return show_debug_message(argument)
 
 }
+global.money = 0
 
+global.bossrooms = [Lv_akwarium_boss]
 
 global.settings={
 	audio : [1, 1], //Music and SFX
 	graphic : [1920, 1280, 0, false], //resolution (width and height) antialising and fullscreen
 	filter : ["NORMAL","NES"] //secret setting
 }
+
+
 
 
 
@@ -25,7 +29,7 @@ if (global.settings.graphic[3]) {
 
 window_set_cursor(cr_default)
 
-//function to reload the settings in-game
+//function to reload the settings in-game unused
 function settings_reload(argument0) {
 
 	try
@@ -51,6 +55,6 @@ function settings_reload(argument0) {
 //#macro Windows:MOBILE false
 //#macro Mobile:MOBILE true
 #macro MOBILE false
-#macro FOLLOW_MOUSE true
+#macro FOLLOW_MOUSE false
 
 

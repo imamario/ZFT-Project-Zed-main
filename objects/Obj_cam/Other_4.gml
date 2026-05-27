@@ -1,0 +1,1 @@
+if (room==Lv_tutorial) { global.cutscene=true target=Obj_cutplayer }

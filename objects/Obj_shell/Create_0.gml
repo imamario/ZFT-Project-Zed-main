@@ -10,7 +10,7 @@ image_xscale=1.3
 image_yscale=1.3
 depth=299
 
-
+//if (global.size>0.8) || (room=Lv_akwarium_boss) { anim(0) exit; }
 anim = 0
 
 
@@ -38,17 +38,18 @@ curstate=STATE.READY
 timer=0
 alarm_set(0,100)
 
+color_fade=1
 
 anim_toggle=false //false = closed, true = open
 anim = function(_anim){
-	
+		image_blend=merge_color(c_gray,c_white,color_fade)
 		var _open = -30
 		var _closed = -8.50		
-		var _delay = 0.05
+		var _delay = 0.1
 	
 	
 	if (_anim = 0) { //STATE.READY (Free)
-		image_blend=c_white
+		color_fade=lerp(color_fade,1,0.1)
 		
 		x=lerp(x,2545,_delay)
 		y=lerp(y,1460,_delay)
@@ -95,7 +96,7 @@ anim = function(_anim){
 	
 		img_angle[1]=lerp(img_angle[1],0,1) // bottom
 		img_angle[0]=lerp(img_angle[0],-10.50,1) // upper
-		image_blend=c_gray
+		color_fade=lerp(color_fade,0,0.1)
 	
 	}
 	

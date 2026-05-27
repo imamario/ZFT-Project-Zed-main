@@ -1,6 +1,5 @@
-
-
-if (global.size>0.8){anim(0) exit;}
+if !variable_global_exists("size")exit;
+if (global.size>0.8) || (room=Lv_akwarium_boss) || (room=Lv_tutorial) { anim(0) exit; }
 
 if (timer>0) { timer-=0.1 }
 if instance_exists(Obj_player){depth=Obj_player.depth+1}
@@ -12,7 +11,7 @@ case STATE.READY:
 	dangerous=0;
 	anim(0);
 	if place_meeting(x,y,Obj_player) {
-		timer=30
+		timer=3
 		curstate=STATE.ATTACKING
 	}
 

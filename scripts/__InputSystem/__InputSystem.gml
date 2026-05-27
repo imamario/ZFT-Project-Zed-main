@@ -103,6 +103,7 @@ function __InputSystem()
         __gamepadButtonNameLookup = __InputCreateGamepadBindingNameLookup();
         
         //Instantiated in __InputSystemPlayerArray()
+		
         __playerArray = undefined;
         
         //Pointer abstraction for mouse/touch input

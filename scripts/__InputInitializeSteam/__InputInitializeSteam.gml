@@ -81,6 +81,8 @@ function __InputInitializeSteam()
             __steamSwitchLabels = __onSteamDeck;
         }
         
+		
+		
         if (__usingSteamworks)
         {
             //Whether we're on WINE. This is useful for trigger effects but is otherwise unused by this library

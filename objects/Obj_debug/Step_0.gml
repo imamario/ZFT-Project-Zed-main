@@ -1,5 +1,3 @@
-
-
 if keyboard_check_pressed(vk_delete) && keyboard_check(vk_alt) { enabled=!enabled keyboard_string="" }
 
 if enabled {

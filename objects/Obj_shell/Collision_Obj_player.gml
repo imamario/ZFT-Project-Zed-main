@@ -1,4 +1,6 @@
+if !variable_global_exists("size")exit;
 //print("PLACE MEETING SHEEL")
+if (global.size>0.8) || (room=Lv_akwarium_boss) || (room=Lv_tutorial) { anim(0) exit; }
 
 if (curstate==STATE.READY) { curstate=STATE.ATTACKING }
 

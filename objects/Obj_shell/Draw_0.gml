@@ -1,4 +1,4 @@
-
+if !variable_global_exists("size")exit;
 draw_sprite_ext(Spr_bottom_shell,0,2544,1514,image_xscale,image_yscale,(img_angle[1]),image_blend,1) //bottom
 draw_sprite_ext(Spr_upper_shell,0,x,y,image_xscale,image_yscale,img_angle[0],image_blend,1) //upper
 /*

@@ -39,7 +39,7 @@ switch(cur_stage[0]) {
 	break;
 	
 	case -1:
-	cur_stage[1] = Lv_akwarium
+	cur_stage[1] = Lv_tutorial
 	cur_stage[3] = "tutorial"
 	break;
 		
@@ -137,7 +137,7 @@ if mouse_check_button_pressed(mb_left) {
 			global.level=[cur_stage[0],4]
 			room_goto(cur_stage[1])
 		}
-	}else{ if _button[4] {show_message("tp for tutorial right here!")} }
+	}else{ if _button[4] {room_goto(Lv_tutorial)} }
 	
 	// Navigation arrows (I added clamps here so you don't go below stage 0!)
 	if _button[5] && (cur_stage[0] > -1) {

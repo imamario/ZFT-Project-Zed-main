@@ -17,6 +17,8 @@ full_restart = function(){
 
 
 
+
+
 xprevious_scale=0
 do_basics()
 _range=50
@@ -30,6 +32,8 @@ xto=x;
 yto=y;
 
 global.size=0.6;
+if array_contains(global.bossrooms,room) {global.size=1.5}
+
 global.state="running";
 global.state="paused";
 global.growth=0.005;
@@ -41,9 +45,6 @@ draw_yscale=global.size;
 draw_angle=global.size;
 
 alarm_set(0,300);
-
-near_fish = [undefined,undefined] // id of the fish and size
-fish_bigger = false
 
 combo_info=[0,0,0,0];
 //combo timer, combo eaten, highest combo, eaten total
@@ -112,6 +113,12 @@ sprnormal = Spr_pwalk
 spreating = Spr_peating
 sprturning = Spr_pturning
 sprtrail = Spr_trailbubble
+sprblood = Spr_killplat
+sprite_index=sprnormal
+
+//blood splat when killed animation
+bloodpos=[x,y]
+
 
 
 
@@ -150,7 +157,7 @@ switch(room) {
 }
 */
 
-sprite_index=sprnormal
+
 vsp = 0;             // Vertical speed
 out_water = false
 gravity_power = 0.5; // How fast you fall

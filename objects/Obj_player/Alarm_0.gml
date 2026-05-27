@@ -1,5 +1,5 @@
 /// @description Fish Spawner
-if (global.state == "paused")exit;
+if (global.state == "paused")||(global.state == "cutscene") exit;
 randomise();
 if can_spawn{
 
@@ -12,6 +12,6 @@ if can_spawn{
 	instance_create_layer(_spawnx,_spawny,"enemies",Obj_fish);
 
 }
-if global.state!="rage"{alarm_set(0,random_range(5,30));}else
+if global.state!="rage"{alarm_set(0,random_range(5,60));}else  //random_range(5,30)) (og spawning rate for !rage)
 {alarm_set(0,random_range(5,10));}
 

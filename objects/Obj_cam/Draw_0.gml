@@ -1,3 +1,5 @@
+if (global.cutscene) exit;
+
 if object_exists(Obj_debug) {
 	
 

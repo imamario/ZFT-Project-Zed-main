@@ -1,3 +1,4 @@
+if (global.cutscene) exit;
 // 1. Get the width and height of the view
 var _vw = camera_get_view_width(view_camera[0]);
 var _vh = camera_get_view_height(view_camera[0]);
@@ -23,26 +24,62 @@ if raged {
 //stating menu before starting the match / pause menu
 if (global.state=="paused") {
 	
-	draw_set_alpha(0.50)
-	draw_rectangle_color(_x1, _y1, _x1 + _vw, _y1 + _vh,
-		c_black,c_black,c_black,c_black,false
-	)
-	draw_set_alpha(1)
+	if matchstate=="starting"  {
+		draw_set_alpha(0.50)
+		draw_rectangle_color(_x1, _y1, _x1 + _vw, _y1 + _vh,
+			c_black,c_black,c_black,c_black,false
+		)
+		draw_set_alpha(1)
 
-	draw_sprite_ext(Spr_box,0,_x1,_y1,2.5+0.08,1.5+0.17,0,image_blend,1)
-	draw_sprite_ext(Spr_playselection_normal,0,x+30,y+410,1,1,0,c_white,1)
+		draw_sprite_ext(Spr_box,0,_x1,_y1,2.5+0.08,1.5+0.17,0,image_blend,1)
+		draw_sprite_ext(Spr_playselection_normal,0,x+30,y+410,1,1,0,c_white,1)
 
 
-		if mouse_check_button_pressed(mb_left) { 
-			//show_message(["mouse_x: " + string(mouse_x - x), "mouse_y: " + string(mouse_y - y)]) 	
-			if point_in_rectangle(mouse_x,mouse_y,x-302,y+367,x+357,y+450) { repeat(10) { instance_activate_all() audio_resume_all(); global.state=("running") } }//show_message("initiated!") global.state="running" }
+			if mouse_check_button_pressed(mb_left) { 
+				//show_message(["mouse_x: " + string(mouse_x - x), "mouse_y: " + string(mouse_y - y)]) 
+				matchstate="running"
+				if point_in_rectangle(mouse_x,mouse_y,x-302,y+367,x+357,y+450) { repeat(10) { instance_activate_all() audio_resume_all(); global.state=("running") } }//show_message("initiated!") global.state="running" }
+		}
+	
+	}else{
+	
+			draw_set_alpha(0.50)
+		draw_rectangle_color(_x1, _y1, _x1 + _vw, _y1 + _vh,
+			c_black,c_black,c_black,c_black,false
+		)
+		draw_set_alpha(1)
+		
+		draw_sprite_ext(Spr_box,0,_x1,_y1,2.5+0.08,1.5+0.17,0,image_blend,1)
+		draw_sprite_ext(Spr_playselection_normal,0,x+30,y+410,1,1,0,c_white,1)
+
+		draw_text_scribble(x+15,y-442,"[fnt_alarm][scaleStack,3]GAME PAUSED")
+
+			if mouse_check_button_pressed(mb_left) { 
+				show_message(["mouse_x: " + string(mouse_x - x), "mouse_y: " + string(mouse_y - y)]) 
+				matchstate="running"
+				if point_in_rectangle(mouse_x,mouse_y,x-302,y+367,x+357,y+450) { repeat(10) { instance_activate_all() audio_resume_all(); global.state=("running") } }//show_message("initiated!") global.state="running" }
 	}
+	
+	
+	
+	
+	
+	
+	
+	}
+		
+		
+		
+	
+	
+	
 }
 
 
 if (global.state=="victory") {
 
 	instance_deactivate_all(true) instance_activate_object(Obj_player) instance_activate_object(Obj_debug)
+	instance_activate_object(__InputUpdateController)
 	
 
 

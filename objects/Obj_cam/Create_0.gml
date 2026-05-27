@@ -5,6 +5,8 @@ spin=0
 raged=false
 trans=0
 previous_state="paused"
+matchstate = "starting"
+
 image_alpha=0
 enablejoystick=0.5
 global.cutscene=false

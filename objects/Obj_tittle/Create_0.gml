@@ -1,5 +1,5 @@
 save()
-
+alarm_set(0,500)
 // Fade logic variables
 starting = 1;
 ending = 0;

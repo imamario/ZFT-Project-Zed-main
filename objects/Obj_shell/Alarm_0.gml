@@ -1,3 +1,4 @@
+if !variable_global_exists("size")exit;
 print("curstate: " + string(curstate))
 print("Timer: " + string(timer))
 print("img_angle[0] Upper: " + string(img_angle[0]))

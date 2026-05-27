@@ -14,10 +14,11 @@ break;
 		break;
 }	
 //show_debug_message("resolution: " + string(res))
+if global.cutscene==false {
 var _a = lerp(jawdraw,Obj_player.combo_info[0],0.1)
 _a = clamp(_a,0,70)
 jawdraw=_a
-
+}
 
 // 1. Check if target exists
 if global.cutscene==false{target=Obj_player xcutscene_fix=0 ycutscene_fix=0}

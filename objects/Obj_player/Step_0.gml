@@ -1,15 +1,7 @@
 // --- 1. PRE-CHECKS ---
+if (global.state!="dead") && x!=9999 && y!=-9999 {bloodpos=[x,y]}
 
-
-
-
-
-
-
-
-
-
-if (global.state == "paused") exit;
+if (global.state == "paused")||(global.state == "cutscene") exit;
 if (global.state == "victory") {
     x = 9999; y = -9999; global.size = 0; can_spawn = false;
     if (exe_rage()) exe_rage();
@@ -145,7 +137,8 @@ if (!FOLLOW_MOUSE) {
 		if (Obj_water.y<y) {
 			draw_angle = lerp(draw_angle, (draw_xscale > 0 ? -_ydir : _ydir) * 50, delay);
 		}else{draw_angle = lerp(draw_angle,movey*2,delay);}
-	}
+	}else{draw_angle = lerp(draw_angle, (draw_xscale > 0 ? -_ydir : _ydir) * 50, delay);}
+		
     // Trail
     if (sprint && (abs(movex) > 1 || abs(movey) > 1)) {
         trail_timer++;

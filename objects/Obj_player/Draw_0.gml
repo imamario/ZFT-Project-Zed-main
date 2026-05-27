@@ -1,4 +1,11 @@
 // --- 1. SET UP COLORS ---
+
+if (global.state="dead"){
+	var _ABDP = 1 //Alpha Blood Dead Player
+	if (image_index=4) || (image_index>3) { _ABDP = 0 image_speed = 0 };
+	draw_sprite_ext(sprblood, image_index, bloodpos[0], bloodpos[1], 2, 2, 0, image_blend, _ABDP);
+};
+
 if (global.state == "paused")exit;
 // Move choose out of the loop so the whole trail flashes together, or keep inside for rainbow
 var _trailcolor = choose(c_green, c_lime, #a0db39, #5c9200);
