@@ -20,8 +20,8 @@ switch(room) {
 						x+=random_range(-5,5)
 						y+=random_range(-5,5)
 						anim.rotate=random_range(180-15,180+15)
-						image_xscale=random(0.6)
-						image_yscale=random(0.6)
+						image_xscale=random_range(0.3,0.6)
+						image_yscale=random_range(0.3,0.6)
 						
 						if (_chance>9) {  state = "awake" }
 						
@@ -32,6 +32,7 @@ switch(room) {
 				case "awake":
 					
 					//timer--;
+					global.cutscene=true
 					anim.ximage=0.6;
 					anim.yimage=0.6;
 					image_xscale=lerp(image_xscale,anim.ximage,0.07);
@@ -52,8 +53,26 @@ switch(room) {
 				case "search":
 				
 				print("searching")
-				if timer==300 || timer==200 || timer==100 {turn()}
+				print(timer)
+				if timer==300 || timer==200 || timer==100 {exe_turn()}
+				timer--
 				
+				if (timer < 0){ state = "eat_fish" }
+				
+				
+				break;
+				
+				case "eat_fish":
+				
+				print("eat_fish")
+				print(cutfish[0])
+				
+				var _check = 100
+				
+				
+				if (cutfish[0] > (x-_check))
+				{exe_eating() print(image_xscale) state = "get_scared"}
+				else{cutfish[0]+=20}
 				
 				
 				break;

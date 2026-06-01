@@ -114,7 +114,7 @@ positions =[
 ]
 	
 	//knowing which stage picture it should show 
-	cur_stage=[0,Lv_akwarium,Lv_akwarium,"akwarium"] //stage number(which stage it is, not level), stage room, stage boss room, name of stage
+	cur_stage=[0,Lv_akwarium,Lv_akwarium_boss,"akwarium"] //stage number(which stage it is, not level), stage room, stage boss room, name of stage
 	
 	max_stage=global.save[0]
 	max_level=global.save[1]

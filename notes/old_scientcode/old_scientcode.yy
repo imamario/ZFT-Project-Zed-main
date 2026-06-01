@@ -1,0 +1,11 @@
+{
+  "$GMNotes":"v1",
+  "%Name":"old_scientcode",
+  "name":"old_scientcode",
+  "parent":{
+    "name":"Akwariumboss",
+    "path":"folders/Enemie/Akwariumboss.yy",
+  },
+  "resourceType":"GMNotes",
+  "resourceVersion":"2.0",
+}

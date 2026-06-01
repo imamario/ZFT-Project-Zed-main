@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"check_collision_btt",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"check_collision_btt",
+  "parent":{
+    "name":"scripts",
+    "path":"folders/scripts.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

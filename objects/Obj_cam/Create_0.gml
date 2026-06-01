@@ -11,6 +11,7 @@ image_alpha=0
 enablejoystick=0.5
 global.cutscene=false
 
+
 cam = view_camera[0];
 cam_width = camera_get_view_width(cam);
 cam_height = camera_get_view_height(cam);
@@ -32,5 +33,4 @@ color_trans = 0
 
 a=0
 
-// --- DEFINE YOUR MAP BOUNDARIES ---
-// Set these to the coordinates of your room
+global.fishtotal = []

@@ -1,0 +1,46 @@
+create: Atk_state=0
+Atk_timer=999
+hp=3//change
+vul=0
+poison_spawner=999
+spawn=Atk_state
+
+step:
+
+
+
+randomise()
+
+if hp!=0{
+y=735
+if (x<1024){
+x+=10}else{x=1024}
+
+image_xscale=lerp(image_xscale,2,0.1)
+image_yscale=lerp(image_yscale,2,0.1)
+
+spawn=Atk_state
+//
+Atk_timer-=0.01
+if poison_spawner!=0{poison_spawner-=0.01}
+if Atk_timer=0{Atk_timer=20 poison_spawner=0}
+if x=1010{Atk_timer=2}
+//starting
+if Atk_timer=0.1{Atk_state=choose(1,2)}//change
+if Atk_timer=20 && Atk_state=1{Atk_timer=5}
+//
+
+if Atk_state=1 && poison_spawner=0
+{instance_create_layer(Obj_pfish.x,-200,"enemies",Obj_deathpoison) poison_spawner=1 show_debug_message("Atk 1 running poison throw!")}
+/*if Atk_state=2 && !object_exists(Obj_claw)
+{instance_create_layer(x,y,"enemies",Obj_claw) show_debug_message("Atk 2 running")}else{show_debug_message(instance_number(Obj_claw))}
+*/
+
+if Atk_state=2 && Atk_timer<10 && Atk_timer>2{vul=1}
+if vul=1 && Obj_pfish.boss_atk=1{hp-=1 image_xscale=random_range(3,4) image_yscale=random_range(3,4) vul=0
+	audio_play_sound(choose(Snd_scream2,Snd_scream1),1,false) Atk_timer=2}
+if Atk_state=2 && Atk_timer=20{instance_create_layer(x,-200,"enemies",Obj_claw)}
+}else{y=735
+x-=10 global.w_timer=-1}
+
+

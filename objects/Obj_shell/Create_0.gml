@@ -36,7 +36,7 @@ enum STATE {
 
 curstate=STATE.READY
 timer=0
-alarm_set(0,100)
+
 
 color_fade=1
 

@@ -91,6 +91,43 @@ if (keyboard_check_pressed(vk_enter)) {
 			
 			break;
 			
+			case "help":
+			
+				if show_question("commands: \n global.state_set (value) \n psize_set (value) \n room_reset \n return_menu \n room_goto (value) \n fish_spawn_switch \n Understood all these commands?")
+				{show_message("great")} else { show_message("Too bad") }
+				
+			break;
+			
+			case "var_print":
+			
+			var _global_var_name = undefined
+		    var _VTP = undefined
+			var _dot_pos = undefined
+			var _obj_name = undefined
+			var _var_name = undefined
+			
+		    // Check if it's a global variable
+		    if (string_pos("global.", _val_string) == 1) {
+		        // Cut out the "global." part to get just the variable name
+		        _global_var_name = string_delete(_val_string, 1, 7);
+		        _VTP = variable_global_get(_global_var_name);
+		    } else {
+		        // Otherwise, split at the dot (e.g., "Obj_player.hp")
+		        _dot_pos = string_pos(".", _val_string);
+		        _obj_name = string_copy(_val_string, 1, _dot_pos - 1);
+		        _var_name = string_delete(_val_string, 1, _dot_pos);
+        
+		        // Find the asset ID and get the variable
+		        _target_id = asset_get_index(_obj_name);
+		        _VTP = variable_instance_get(_target_id, _var_name);
+		    }
+    
+		    print(_VTP);
+		    show_message(_val_string + " = " + string(_VTP));
+			
+			break;
+			
+			
 			
 			default:
                 show_debug_message("Unknown command: " + _actual_cmd);

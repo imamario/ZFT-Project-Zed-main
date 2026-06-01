@@ -1,3 +1,8 @@
+var _to_destroy = [Obj_fish,Obj_bottle]
+for(var _i = 0; _i < array_length(_to_destroy); _i++) { 
+instance_destroy(_to_destroy[_i])
+}
+
 
 do_basics = function(){
 	if !instance_exists(Obj_cam){instance_create_depth(x,y,-9999,Obj_cam)};
@@ -6,6 +11,7 @@ do_basics = function(){
 }
 
 full_restart = function(){
+	
 	global.state="running" global.size=0.6; 
 	
 	x=room_width/2 y=room_height/2 
@@ -13,6 +19,7 @@ full_restart = function(){
 	instance_destroy(Obj_fish)
 	audio_stop_all()
 	room_restart()
+
 }
 
 

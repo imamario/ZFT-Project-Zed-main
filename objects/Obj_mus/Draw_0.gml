@@ -1,13 +1,8 @@
 
 
-switch(room){
+switch(global.level[0]){
 	
-	case Lv_Toiletdoom:
-		depth=(DEPTHY.BOTTOM)
-		draw_sprite_ext(Spr_cell,0,1840,785,1.5,1.45,0,image_blend,1)
-	break;
-	
-	case Lv_akwarium:
+	case 0:
 		draw_sprite_ext(Spr_accessorieslvl1,0,0,0,1,1,0,image_blend,1)
 		shader_set(Sha_plantanim);
 		//draw_sprite_ext(Spr_accessorieslvl1,0,0,0,1.702439,1.341333,0,image_blend,1)
@@ -18,13 +13,15 @@ switch(room){
 		//draw_sprite_ext(Spr_lvl1foreground,0,-32,-160,1.718049,1.448,0,image_blend,1)
 		draw_sprite_ext(Spr_lvl1foreground,0,-100,0,1.1,1,0,image_blend,1)
 		shader_reset();
-		
-		
-		// If your plants are on an Asset Layer, you can draw the whole layer at once:
-		
+	break;
+	
+	case 1:
+		depth=(DEPTHY.BOTTOM)
+		draw_sprite_ext(Spr_cell,0,1840,785,1.5,1.45,0,image_blend,1)
+		draw_sprite_ext(Spr_cell,0,672,1152,1.027658,1.318091,0,image_blend,1)
+	break;
 	
 
-	break;
 		
 		
 }

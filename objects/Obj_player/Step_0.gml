@@ -186,7 +186,41 @@ if (global.state == "running" || global.state == "rage") {
     var _fish = instance_place(x, y, Obj_fish);
     if (_fish != noone) {
         if (_fish.eatable) {
-            alarm_set(1, 100);
+            alarm_set(1, 200);
+			repeat(2) {
+			event_perform(ev_alarm, 0);
+			}
+			// If the array is too small, fill it with 0s until it's big enough
+			while (array_length(global.fishtotal) <= _fish.image_index) {
+			    array_push(global.fishtotal, 0);
+			}
+
+			// Now it is 100% safe to increment!
+			global.fishtotal[_fish.image_index]++;
+			
+			//draw_angle = point_direction(x,y,_fish.x,_fish.y)
+			/*
+			if (sign(draw_xscale) = sign(_fish.image_xscale))
+			{draw_xscale = -draw_xscale}
+			*/
+			
+			// --- FLIP BOTH TO FACE EACH OTHER ---
+            if (x < _fish.x) {
+                // Player is on the left, fish is on the right
+                draw_xscale = +global.size;         // Player faces right
+                //_fish.image_xscale = -1;  // Fish faces left
+            } else {
+                // Player is on the right, fish is on the left
+                draw_xscale = -global.size;        // Player faces left
+                //_fish.image_xscale = 1;   // Fish faces right
+            }
+	
+			
+			
+			
+			
+			
+			
             combo_info[1]++;
             combo_info[3]++;
             global.size += global.growth;

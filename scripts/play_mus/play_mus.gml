@@ -33,9 +33,10 @@ function play_mus(argument0,argument1,argument2){
 					
 					break;
 					
-				case "won":
+				case "victory":
 					
 					audio_stop_sound(argument0)
+					audio_stop_sound(Snd_ragedtheme)
 					if !audio_is_playing(Snd_success){
 					audio_play_sound(Snd_success,1,true,argument2)}
 					
