@@ -9,7 +9,7 @@ else
 	if (img_alpha<1){img_alpha+=0.03}
 	
 }
-if (img_alpha<1)exit;
+if (img_alpha<0.2)exit;
 var _button = [
 
 	//top left
@@ -135,7 +135,7 @@ if mouse_check_button_pressed(mb_left) {
 	
 		if _button[4] && (_lv_unlocked > 4) {
 			global.level=[cur_stage[0],4]
-			room_goto(cur_stage[1])
+			room_goto(cur_stage[2])
 		}
 	}else{ if _button[4] {room_goto(Lv_tutorial)} }
 	

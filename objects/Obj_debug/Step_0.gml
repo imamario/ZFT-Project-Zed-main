@@ -127,6 +127,17 @@ if (keyboard_check_pressed(vk_enter)) {
 			
 			break;
 			
+			case "spawn_obj":
+			
+			instance_create_layer(mouse_x,mouse_y,Obj_player.layer,_val_string)
+			
+			
+			break;
+			
+			
+			
+			
+			
 			
 			
 			default:

@@ -48,6 +48,22 @@ exe_turn = function() {
 		
 }
 
+exe_scared = function() {
+		
+		sprite_index = Spr_pscared
+		image_index = 0
+		
+}
+
+exe_end = function() {
+	
+	
+	global.state = "paused"
+	instance_create_layer(x,y,"Instances",Obj_player)	
+	instance_destroy()
+	
+}
+
 
 
 

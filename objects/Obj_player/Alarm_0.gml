@@ -1,7 +1,7 @@
 /// @description Fish Spawner
 if (global.state == "paused")||(global.state == "cutscene") exit;
 randomise();
-if can_spawn{
+if can_spawn && (instance_number(Obj_fish)<75){
 
 	var _spawning=-100;
 	var _spawnx;

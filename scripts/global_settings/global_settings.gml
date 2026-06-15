@@ -3,9 +3,22 @@ function print(argument){
 return show_debug_message(argument)
 
 }
-global.money = 0
+
+
 
 global.bossrooms = [Lv_akwarium_boss]
+
+function is_boss() {
+	
+var _bossrooms = global.bossrooms
+	
+if array_contains(_bossrooms,room) {return true}	else	{return false}
+	
+}
+
+
+
+global.money = 0
 
 global.settings={
 	audio : [1, 1], //Music and SFX

@@ -1,6 +1,6 @@
 // --- 1. THE FADE LOGIC QUEUE ---
 
-
+if !audio_is_playing(Snd_menu) {audio_play_sound(Snd_menu,1,true, global.settings.audio[0]) }
 
 if (starting > 0) {
 	starting -= 0.01; // Fade In
@@ -39,7 +39,10 @@ switch(menu) {
 		buttons_change(Spr_storybtt, Spr_challengesbtt, Spr_backbtt);
 	break;
 }
-	
+//section to make mouse handy
+
+
+//checking if pressed mouse and execute it
 if mouse_check_button_pressed(mb_left) {
 	// Modes Menu
 	next_menu(BTT.A, MENUS.MODES, function() { room_goto(Rm_levelselect) }, MENUS.MODES, 1); // storymode (FADES)
@@ -51,6 +54,7 @@ if mouse_check_button_pressed(mb_left) {
 	next_menu(BTT.B, MENUS.NORMAL, function() { room_goto(Rm_options) }, MENUS.NORMAL); // options
 	next_menu(BTT.C, MENUS.NORMAL, game_end, MENUS.NORMAL); // exit
 }
+
 
 if keyboard_check_pressed(vk_enter) {
 	switch(keyboard_string) {

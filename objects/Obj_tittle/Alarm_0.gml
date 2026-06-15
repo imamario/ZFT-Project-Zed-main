@@ -1,3 +1,4 @@
+/*
 for(var i = -1; i < 10; i++) {
 	print(["InputDeviceIsGamepad: " + string(InputDeviceIsGamepad(i)),"Variable I: " + string(i)])
 }

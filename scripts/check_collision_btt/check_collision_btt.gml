@@ -1,10 +1,15 @@
 function check_click_btt(xpos,ypos,x2pos,y2pos) {
 
-	if point_in_rectangle(mouse_x,mouse_y,xpos,ypos,x2pos,y2pos) && mouse_check_button_pressed(mb_left) {
+	if point_in_rectangle(mouse_x,mouse_y,xpos,ypos,x2pos,y2pos){
 		
-		return true
+		window_set_cursor(cr_handpoint)
 		
-	}else{return false}
+		if mouse_check_button_pressed(mb_left){
+		
+			return true
+		
+		}else{window_set_cursor(cr_default) return false}
 
+	}else{window_set_cursor(cr_default) return false}
 
 }

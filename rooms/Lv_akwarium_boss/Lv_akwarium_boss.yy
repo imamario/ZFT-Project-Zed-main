@@ -12,6 +12,7 @@
     {"name":"inst_53FBF3B5_1_1","path":"rooms/Lv_akwarium_boss/Lv_akwarium_boss.yy",},
     {"name":"inst_11F91C85_1","path":"rooms/Lv_akwarium_boss/Lv_akwarium_boss.yy",},
     {"name":"inst_309B1281","path":"rooms/Lv_akwarium_boss/Lv_akwarium_boss.yy",},
+    {"name":"inst_863A259","path":"rooms/Lv_akwarium_boss/Lv_akwarium_boss.yy",},
   ],
   "isDnd":false,
   "layers":[
@@ -25,6 +26,7 @@
         {"$GMRInstance":"v4","%Name":"inst_2960F98C1_1","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_2960F98C1_1","objectId":{"name":"Obj_wall","path":"objects/Obj_wall/Obj_wall.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":-65.5,"scaleY":-0.5862069,"x":4064.0,"y":2048.0,},
         {"$GMRInstance":"v4","%Name":"inst_62C31F98_1_1","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_62C31F98_1_1","objectId":{"name":"Obj_wall","path":"objects/Obj_wall/Obj_wall.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":65.0,"scaleY":2.0,"x":-64.0,"y":-160.0,},
         {"$GMRInstance":"v4","%Name":"inst_53FBF3B5_1_1","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_53FBF3B5_1_1","objectId":{"name":"Obj_wall","path":"objects/Obj_wall/Obj_wall.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":39.0,"x":-96.0,"y":-64.0,},
+        {"$GMRInstance":"v4","%Name":"inst_863A259","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_863A259","objectId":{"name":"Obj_scientist","path":"objects/Obj_scientist/Obj_scientist.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":-192.0,"y":1056.0,},
       ],"layers":[],"name":"decorations","properties":[],"resourceType":"GMRInstanceLayer","resourceVersion":"2.0","userdefinedDepth":false,"visible":true,},
     {"$GMRBackgroundLayer":"","%Name":"Background","animationFPS":30.0,"animationSpeedType":0,"colour":4294967295,"depth":300,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"hspeed":0.0,"htiled":true,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"name":"Background","properties":[],"resourceType":"GMRBackgroundLayer","resourceVersion":"2.0","spriteId":{"name":"Spr_lvlbgatl","path":"sprites/Spr_lvlbgatl/Spr_lvlbgatl.yy",},"stretch":true,"userdefinedAnimFPS":false,"userdefinedDepth":false,"visible":true,"vspeed":0.0,"vtiled":true,"x":0,"y":0,},
   ],

@@ -34,8 +34,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"Spr_truepoison1",
-    "path":"sprites/Spr_truepoison1/Spr_truepoison1.yy",
+    "name":"Spr_truepoison",
+    "path":"sprites/Spr_truepoison/Spr_truepoison.yy",
   },
   "spriteMaskId":null,
   "visible":true,

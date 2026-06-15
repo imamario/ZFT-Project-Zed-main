@@ -38,8 +38,13 @@ movey=0;
 xto=x;
 yto=y;
 
+
+
+can_spawn=true;
 global.size=0.6;
-if array_contains(global.bossrooms,room) {global.size=1.5}
+if is_boss() {global.size=1.5 can_spawn = false}
+
+
 
 global.state="running";
 global.state="paused";
@@ -62,7 +67,6 @@ combo_info=[0,0,0,0];
 
 spd=10;
 delay=0.1;
-can_spawn=true;
 if !FOLLOW_MOUSE { delay=0.08 }
 
 // Define the mouse follow function

@@ -1,3 +1,5 @@
+
+
 switch(room) {
 	
 	case Lv_tutorial:
@@ -71,8 +73,23 @@ switch(room) {
 				
 				
 				if (cutfish[0] > (x-_check))
-				{exe_eating() print(image_xscale) state = "get_scared"}
+				{exe_eating() print(image_xscale) cutfish[0]=room_width+100 state = "get_scared"}
 				else{cutfish[0]+=20}
+				
+				
+				break;
+				
+				
+				case "get_scared":
+				if (sign(image_xscale) == -1){ exe_turn() }
+				if (sprite_index=spreating) || (sprite_index=sprturning)exit;
+				
+				
+				
+				
+				if (sprite_index!=Spr_pscared) { exe_scared() }
+				if image_index=2 {image_speed=0}else{image_speed=1}
+				
 				
 				
 				break;
@@ -89,17 +106,14 @@ switch(room) {
 			
 			
 			}
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
 	break;
+
+	case Lv_akwarium_boss:
+	
+	target = {Object: Obj_scientist, x: Obj_scientist.pos.x, y: Obj_scientist.pos.y-400}
+	
+	break;
+
 	
 	
 	

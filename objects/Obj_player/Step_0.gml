@@ -1,3 +1,10 @@
+if mouse_check_button(mb_right) {
+
+instance_create_layer(mouse_x,mouse_y,Obj_player.layer,Obj_poison)
+print("NOSGMNOOF SPAWNED")
+
+}
+
 // --- 1. PRE-CHECKS ---
 if (global.state!="dead") && x!=9999 && y!=-9999 {bloodpos=[x,y]}
 
@@ -230,7 +237,7 @@ if (global.state == "running" || global.state == "rage") {
             instance_destroy(_fish);
         } else {
             global.state = "dead";
-            audio_play_sound(Snd_jaw, 1, false);
+            audio_play_sound(Snd_jaw, 1, false,global.settings.audio[1]);
         }
     }
 

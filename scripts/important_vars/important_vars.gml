@@ -1,11 +1,12 @@
 global.save=[0,1] //stage and level
 global.level = [0,0] //stage and level
-
 global.font = font_add_sprite_ext(Spr_font,"$qc.?!()wemavk8o9gzx2ruj6ydnb0ps47l%/1iht3f5v÷+×='_-:",true,0)
 
 draw_set_font(global.font)
 draw_set_halign(fa_center)
 draw_set_valign(fa_center)
+
+gpu_set_ztestenable(true); gpu_set_zwriteenable(true); //erroring line of code (possibly, just reminder for when coming back from the shower)
 
 /*
 function mods_folder(){

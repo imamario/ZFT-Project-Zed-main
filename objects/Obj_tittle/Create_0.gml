@@ -6,6 +6,13 @@ ending = 0;
 target_menu = -1;
 target_action = -1;
 
+// hand for the tittle name animation
+
+hand = {x:615, y:1800, yspd:-5, grav:1.5}
+game_name = {x:hand.x, y:(hand.y+100), index:0} //Spr_tittle
+hand_state = "naming"
+
+
 /// Menu stuff
 enum BTT { // references to buttons
 	F = 0, 
@@ -45,6 +52,9 @@ next_menu = function(_array_index, _changeto, _is_action = -1, _current_menu_che
 	if (_current_menu_check == -1 || menu == _current_menu_check) {
 		
 		if (point_in_rectangle(mouse_x, mouse_y, a[0], a[1], a[2], a[3])) {
+			
+			window_set_cursor(cr_handpoint)
+			
 			if (mouse_check_button_pressed(mb_left)) {
 				
 				// Play click sound
@@ -66,7 +76,7 @@ next_menu = function(_array_index, _changeto, _is_action = -1, _current_menu_che
 					}
 				}
 			}
-		}
+		}else{window_set_cursor(cr_default)}
 	}
 }
 

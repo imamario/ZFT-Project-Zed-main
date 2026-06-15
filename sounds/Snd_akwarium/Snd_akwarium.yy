@@ -10,7 +10,7 @@
   "compression":1,
   "compressionQuality":10,
   "conversionMode":0,
-  "duration":116.89798,
+  "duration":0.0,
   "exportDir":"",
   "name":"Snd_akwarium",
   "parent":{
