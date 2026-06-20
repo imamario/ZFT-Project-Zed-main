@@ -47,23 +47,15 @@ camera_set_view_pos(view_camera[0], x - (cam_width * 0.5), y - (cam_height * 0.5
 
 if (global.state != "cutscene") && (global.state != "starting") {
 	
-	if instance_exists(Obj_debug) {
+	if instance_exists(Obj_debug) && !Obj_debug.enabled {
 
-		if Obj_debug.enabled{Obj_debug.x = x; Obj_debug.y = y;}else
-		{ 
-			
-			if keyboard_check_pressed(vk_escape) && (global.state!="paused") {previous_state=global.state global.state="paused"} else
-			if keyboard_check_pressed(vk_escape) && (global.state="paused") {global.state=previous_state} 
-
-		}
-	}else{
 	
 		if keyboard_check_pressed(vk_escape) && (global.state!="paused") {previous_state=global.state global.state="paused"} else
 		if keyboard_check_pressed(vk_escape) && (global.state="paused") {global.state=previous_state} 
 		
-	}
-	
 }
+	
+
 
 
 

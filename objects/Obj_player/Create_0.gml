@@ -26,6 +26,7 @@ full_restart = function(){
 
 
 
+
 xprevious_scale=0
 do_basics()
 _range=50
@@ -55,6 +56,7 @@ global.powerup=0; //on powerup?, type (by default -1 which is none)
 draw_xscale=global.size;
 draw_yscale=global.size;
 draw_angle=global.size;
+draw_alpha=1
 
 alarm_set(0,300);
 

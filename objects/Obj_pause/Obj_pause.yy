@@ -12,8 +12,8 @@
   "name":"Obj_pause",
   "overriddenProperties":[],
   "parent":{
-    "name":"Objects",
-    "path":"folders/Objects.yy",
+    "name":"unused",
+    "path":"folders/Objects/unused.yy",
   },
   "parentObjectId":null,
   "persistent":false,

@@ -1,19 +1,21 @@
 {
   "$GMObject":"",
-  "%Name":"Obj_debug",
+  "%Name":"Obj_oldclaw",
   "eventList":[
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":8,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"Obj_debug",
+  "name":"Obj_oldclaw",
   "overriddenProperties":[],
   "parent":{
-    "name":"misc",
-    "path":"folders/Objects/misc.yy",
+    "name":"Akwariumboss",
+    "path":"folders/Enemie/Akwariumboss.yy",
   },
-  "parentObjectId":null,
+  "parentObjectId":{
+    "name":"Obj_bossdanger",
+    "path":"objects/Obj_bossdanger/Obj_bossdanger.yy",
+  },
   "persistent":false,
   "physicsAngularDamping":0.1,
   "physicsDensity":0.5,
@@ -31,7 +33,10 @@
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
   "solid":false,
-  "spriteId":null,
+  "spriteId":{
+    "name":"Spr_clawboss_fishgotten",
+    "path":"sprites/Spr_clawboss_fishgotten/Spr_clawboss_fishgotten.yy",
+  },
   "spriteMaskId":null,
   "visible":true,
 }

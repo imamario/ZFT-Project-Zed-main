@@ -26,6 +26,18 @@ global.settings={
 	filter : ["NORMAL","NES"] //secret setting
 }
 
+global.achivements = 
+[
+{
+	name: "Aquatic Veteran",
+	image: Spr_achiv_1,
+	description: "Played an older version of the game",
+	unlocked: false
+}
+
+
+
+]
 
 
 

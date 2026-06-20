@@ -40,8 +40,8 @@ switch(Atk_state){
 	case "Claw_atk":
 	if !instance_exists(Obj_deathpoison){
 	if (Atk_timer<0){Atk_timer=20}
-	if (Atk_timer=20){instance_create_layer(x,-100,"enemies",Obj_claw)}
-	if !instance_exists(Obj_claw){vul=1}
+	if (Atk_timer=20){instance_create_layer(x,-100,"enemies",Obj_oldclaw)}
+	if !instance_exists(Obj_oldclaw){vul=1}
 	if vul=1 && Obj_pfish.boss_atk=1
 	{audio_play_sound(choose(Snd_scream1,Snd_scream2),1,false) Atk_timer=999 hp-- 
 	image_xscale=random_range(5,10) image_yscale=random_range(5,10) Atk_state="Vulnerable"}

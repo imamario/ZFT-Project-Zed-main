@@ -1,7 +1,3 @@
-
-
-
-
 var _speed     = 1.5;     // How fast it moves (higher = faster)
 var _distance  = 30;      // How many pixels up and down it travels
 var _asymmetry = 1;       // 1 = perfectly smooth. Increase for a snappy "bounce" effect.

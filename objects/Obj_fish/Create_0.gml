@@ -67,9 +67,10 @@ switch(size){
 
 
 diff=round(random(13));
-type=2//choose(1,2,2,2,2,2)//round(random(11));
+type=4//choose(2,2,2,2,3,4444)//choose(1,2,2,2,2,2)//round(random(11));
 turn=round(random(120));
 eatable=false
+
 
 draw_size = size
 
@@ -80,8 +81,8 @@ image_xscale=size
 
 
 frequency=hspd*2
-
 eatanim=-1
+//direction=random(45)
 
 
 

@@ -48,7 +48,7 @@ for (var i = 0; i < _trail_count; i++) {
 // --- 3. DRAW PLAYER ---
 // Use the calculated _value alpha for the player if that was your intention, 
 // or 1 for a solid player.
-draw_sprite_ext(sprite_index, image_index, x, y, draw_xscale, draw_yscale, draw_angle, image_blend, 1);
+draw_sprite_ext(sprite_index, image_index, x, y, draw_xscale, draw_yscale, draw_angle, image_blend, draw_alpha);
 
 // Cleanup
 draw_set_alpha(1);

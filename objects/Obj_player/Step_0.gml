@@ -1,3 +1,5 @@
+if (global.state == "cutscene")exit;
+
 if mouse_check_button(mb_right) {
 
 instance_create_layer(mouse_x,mouse_y,Obj_player.layer,Obj_poison)

@@ -1,4 +1,6 @@
 if (global.state=="paused")exit;
+//draw_circle(x,y,500,true)
+
 var _bal = 0
 
 if sign(size)<0 { _bal=-size } else { _bal=size }

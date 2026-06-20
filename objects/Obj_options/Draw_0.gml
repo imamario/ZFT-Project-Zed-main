@@ -1,40 +1,17 @@
-draw_menu = function(_text) {
-	
-}
+draw_sprite_ext(Spr_box,0,box_img.x,box_img.y,box_img.xscale,box_img.yscale,0,c_white,1)
 
-draw_sprite_ext(Spr_box,0,xdraw,ydraw,xdraw_scale,ydraw_scale,0,c_white,1)
 
-/*
-draw_text(mouse_x,mouse_y,"audio")
-print("mousex : " + string(mouse_x))
-print("mousey : " + string(mouse_y))
-*/
+act_buttons.x = lerp(act_buttons.x,1344,0.1)
 
-if cur_tab[0]!=TABS.NONE {
 
-	switch(cur_tab[0]) {
-		
-		
-	case 0:
+draw_set_color(c_aqua)
+for(var _i = 0; _i < 3; _i++) {
+	draw_sprite_ext(Spr_blankbtt,0,act_buttons.x,act_buttons.y+(300*_i),1.489796,1.551724,0,c_white,1)
 	
-			draw_options(300, 180,"audio",#00FFFF,2,0)
-			draw_options(290, 385,"song: " + string(global.settings.audio[0]),#00FFFF,1.5,1)
-			draw_options(240, 575,"sfx: " + string(global.settings.audio[1]),#00FFFF,1.5,2)
-	
-	break;
-	
-	case 1:
-	
-			draw_options(300, 180,"adadaaudio",#00FFFF,2,0)
-			draw_options(290, 385,"song: " + string(global.settings.audio[0]),#00FFFF,1.5,1)
-			draw_options(240, 575,"sfx: " + string(global.settings.audio[1]),#00FFFF,1.5,2)
-	
-	break;
-		
-		
-	}
-	
-
-	
+	draw_text_scribble(act_buttons.x+170,act_buttons.y+(300*1)-143,"[scaleStack,0.7]back")
+	draw_text_scribble(act_buttons.x+170,act_buttons.y+(300*2)-143,"[scaleStack,0.7]video")
+	draw_text_scribble(act_buttons.x+170,act_buttons.y+(300*3)-143,"[scaleStack,0.7]audio")
 
 }
+draw_set_color(c_white)
+//1344 64

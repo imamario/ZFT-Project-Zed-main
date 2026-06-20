@@ -9,12 +9,12 @@
   "name":"Obj_claw",
   "overriddenProperties":[],
   "parent":{
-    "name":"Akwariumboss",
-    "path":"folders/Enemie/Akwariumboss.yy",
+    "name":"boss",
+    "path":"folders/Objects/Enemie/akwarium/boss.yy",
   },
   "parentObjectId":{
-    "name":"Obj_bossdanger",
-    "path":"objects/Obj_bossdanger/Obj_bossdanger.yy",
+    "name":"Obj_danger_func",
+    "path":"objects/Obj_danger_func/Obj_danger_func.yy",
   },
   "persistent":false,
   "physicsAngularDamping":0.1,
@@ -34,8 +34,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"Spr_clawboss1",
-    "path":"sprites/Spr_clawboss1/Spr_clawboss1.yy",
+    "name":"Spr_clawboss_fishgotten",
+    "path":"sprites/Spr_clawboss_fishgotten/Spr_clawboss_fishgotten.yy",
   },
   "spriteMaskId":null,
   "visible":true,

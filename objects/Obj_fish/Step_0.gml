@@ -1,3 +1,6 @@
+var _sprite_width = sprite_get_width(sprite_index)
+
+if !instance_exists(Obj_player)exit;
 if (global.state=="paused")exit;
 if (size < global.size) || (size == global.size) {
 
@@ -37,6 +40,26 @@ switch(type){
 	x+=hspd
 	
 	break;
+	
+	case 3:
+	
+	x+=hspd
+	if eatable!=true && (point_distance(x,y,Obj_player.x,Obj_player.y)<500){
+		time+=0.05
+		if (Obj_player.y>y){ y+=(time/10) }else{ y-=(time/10) }
+		}
+	
+	
+	break;
+	
+	case 4:
+	
+	x+=hspd
+	y+=wave_advanced(current_time,1,50,ystart)
+	
+	
+	
+	break;
 
 }
 
@@ -53,12 +76,4 @@ if instance_exists(Obj_cam){
 	if Obj_cam.raged{image_blend=c_red}
 }
 
-
-
-
-
-
-
-
-
-if x=room_width+600 || x=-500{instance_destroy()};
+if x>room_width+_sprite_width || x<-_sprite_width{instance_destroy()};
