@@ -22,9 +22,7 @@ jawdraw=_a
 
 // 1. Check if target exists
 if global.cutscene==false{target=Obj_player xcutscene_fix=0 ycutscene_fix=0}
-
-if !is_struct(target) { if (!instance_exists(target)) exit; }
-else{ if (!instance_exists(target.Object)) exit;  }
+if (!instance_exists(target)) exit;
 
 
 // 2. Update target destination

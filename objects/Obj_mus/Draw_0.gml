@@ -3,7 +3,7 @@
 switch(global.level[0]){
 	
 	case 0:
-		if global.level[1] == 4 {
+		if global.level[1] == 4 && instance_exists(Obj_scientist) {
 		draw_sprite_ext(Spr_scientist,0,Obj_scientist.pos.x,Obj_scientist.pos.y,Obj_scientist.image_xscale,Obj_scientist.image_yscale,0,c_white,1)
 		}
 		

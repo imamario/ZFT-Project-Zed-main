@@ -2,6 +2,7 @@
 cutscene_bar = 0
 
 
+
 // Camera setup
 alarm_set(0,200)
 spin=0
@@ -21,7 +22,7 @@ xcutscene_fix=0
 ycutscene_fix=0
 
 // Set follow target
-target = Obj_player;
+target = 0;
 xto=x
 yto=y;
 
@@ -32,10 +33,6 @@ depth=-99999
 jawdraw=0
 color=0
 color_trans = 0
-
-x=room_width/2
-y=room_height/2
-
 
 a=0
 

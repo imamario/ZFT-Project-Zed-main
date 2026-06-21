@@ -1,12 +1,11 @@
-if (global.state == "cutscene")exit;
-
+/*
 if mouse_check_button(mb_right) {
 
 instance_create_layer(mouse_x,mouse_y,Obj_player.layer,Obj_poison)
 print("NOSGMNOOF SPAWNED")
 
 }
-
+*/
 // --- 1. PRE-CHECKS ---
 if (global.state!="dead") && x!=9999 && y!=-9999 {bloodpos=[x,y]}
 
@@ -27,7 +26,7 @@ down  = InputCheck(INPUT_VERB.DOWN);
 up    = InputCheck(INPUT_VERB.UP);
 sprint = InputCheck(INPUT_VERB.SPRINT);
 
-if (_debug_enabled) {
+if (_debug_enabled) || (global.cutscene) {
     left = 0
 	right = 0
 	down = 0

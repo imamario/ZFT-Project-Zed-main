@@ -1,9 +1,9 @@
 {
   "$GMScript":"v1",
-  "%Name":"important_vars",
+  "%Name":"init_important_vars",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"important_vars",
+  "name":"init_important_vars",
   "parent":{
     "name":"scripts",
     "path":"folders/scripts.yy",

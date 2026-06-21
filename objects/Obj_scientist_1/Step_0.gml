@@ -1,3 +1,6 @@
+/*
+if (global.state=="paused")exit;
+
 var _speed     = 1.5;     // How fast it moves (higher = faster)
 var _distance  = 30;      // How many pixels up and down it travels
 var _asymmetry = 1;       // 1 = perfectly smooth. Increase for a snappy "bounce" effect.
@@ -29,23 +32,36 @@ case AKSTATE.INTRO:
 		
 			//print("JLKGSNDLIGNISNMDF")
 			skipping = 0
-			if instance_exists(Obj_cutplayer) { with(Obj_cutplayer) { exe_end() } }
-			curstate = AKSTATE.CLAW
-
+			//if instance_exists(Obj_cutplayer) { with(Obj_cutplayer) { exe_end() } }
+			with(Obj_cam){ event_user(1) }
+			
+			time_source_reconfigure(atk_time,15,time_source_units_seconds,function(){event_user(0)})
+			//curstate = AKSTATE.CLAW
 			
 		}
-		
-		
-		
-		
-		
 	}
+break;
+	
+case AKSTATE.CLAW:
+
+
+	
+	if !(point_distance(pos.x,pos.y,832,736)<0.1) {
+			pos.x-=20
+			pos.y-=10
+	}
+		
 	
 	
 	
+	if !instance_exists(Obj_claw) {instance_create_layer(1792,-512,"enemies",Obj_claw)}
 	
 
+
+
 break;
+	
+	
 	
 	
 	
