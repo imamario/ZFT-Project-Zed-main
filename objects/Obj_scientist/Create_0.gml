@@ -12,7 +12,7 @@ image_yscale = _size
 curstate = AKSTATE.INTRO
 skipping = 0
 dept = 0
-/*
+
 atk_time = time_source_create(time_source_game,15,time_source_units_seconds,function(){})
 
 

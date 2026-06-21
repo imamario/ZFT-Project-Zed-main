@@ -1,5 +1,5 @@
 /// @desc Undo User_event 0
-/*
+
 global.cutscene=false
 ycutscene_fix=0
 xcutscene_fix=0

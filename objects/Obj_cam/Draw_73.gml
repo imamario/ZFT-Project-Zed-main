@@ -163,4 +163,4 @@ if (global.state == "victory") {
 
 	// TODO: _button / _sidebutton arrays are defined but never drawn — wire these up
 }
-print("execting shit in end event")
+//print("execting shit in end event")

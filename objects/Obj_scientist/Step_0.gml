@@ -1,4 +1,3 @@
-/*
 if (global.state=="paused")exit;
 
 var _speed     = 1.5;     // How fast it moves (higher = faster)
@@ -36,7 +35,7 @@ case AKSTATE.INTRO:
 			with(Obj_cam){ event_user(1) }
 			
 			time_source_reconfigure(atk_time,15,time_source_units_seconds,function(){event_user(0)})
-			//curstate = AKSTATE.CLAW
+			curstate = AKSTATE.CLAW
 			
 		}
 	}
@@ -45,12 +44,21 @@ break;
 case AKSTATE.CLAW:
 
 
-	
-	if !(point_distance(pos.x,pos.y,832,736)<0.1) {
-			pos.x-=20
-			pos.y-=10
-	}
+	//print("(point_distance(pos.x,pos.y,832,736)<10): " +string((point_distance(pos.x,pos.y,832,736)<10)))
+
+	if (point_distance(pos.x,pos.y,pos.x,736)<20) {
 		
+	print("done")
+	speed=0
+	
+	
+	}else{ 
+		
+		pos.x = lerp(pos.x,836,0.1)
+		pos.y = lerp(pos.y,736,0.1)
+		
+		print("point_distance: " + string((point_distance(pos.x,pos.y,pos.x,736))))}
+	
 	
 	
 	

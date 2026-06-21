@@ -252,7 +252,7 @@
     {"id":{"name":"Obj_poison","path":"objects/Obj_poison/Obj_poison.yy",},},
     {"id":{"name":"Obj_retractor","path":"objects/Obj_retractor/Obj_retractor.yy",},},
     {"id":{"name":"Obj_savelvl","path":"objects/Obj_savelvl/Obj_savelvl.yy",},},
-    {"id":{"name":"Obj_scientist_1","path":"objects/Obj_scientist_1/Obj_scientist_1.yy",},},
+    {"id":{"name":"Obj_scientist","path":"objects/Obj_scientist/Obj_scientist.yy",},},
     {"id":{"name":"Obj_selectable","path":"objects/Obj_selectable/Obj_selectable.yy",},},
     {"id":{"name":"Obj_shell","path":"objects/Obj_shell/Obj_shell.yy",},},
     {"id":{"name":"Obj_sign","path":"objects/Obj_sign/Obj_sign.yy",},},
