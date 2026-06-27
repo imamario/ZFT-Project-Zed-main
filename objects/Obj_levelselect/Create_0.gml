@@ -128,10 +128,16 @@ anim_y=1500
 
 anim_yscale=0
 
-draw_levels = function(image,index,xto,yto) {
+draw_levels = function(image,index,xto,yto,_tag_nmb = -1) {
 	
 	draw_sprite_ext(image,index,xto+anim_x,yto+anim_y,0.6533334,0.6211823*anim_yscale,0,c_white,image_alpha)//draw the picture
 	draw_sprite_ext(Spr_portrait,0,xto+anim_x,yto+anim_y,0.6030293,0.602751*anim_yscale,0,c_white,image_alpha)//draw the portrait
+	if _tag_nmb!=-1{
+	draw_sprite_ext(Spr_tag,_tag_nmb,xto+anim_x,yto+anim_y,0.6030293,0.602751*anim_yscale,0,c_white,image_alpha)//draw the portrait
+	}
+	
 	
 }
 
+offset_x = 0
+offset_y = 0

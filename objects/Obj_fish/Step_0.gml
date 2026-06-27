@@ -35,10 +35,48 @@ switch(type){
 
 	case 2:
 	
+	var _range = 100
+	var _predator = instance_nearest(x,y,Obj_fish)
+	
+	
 	if turn!=0{turn-=0.1}else{turn=round(random_range(100,220))}
 	if turn=0.1{draw_size=-draw_size hspd=-hspd} 
 	x+=hspd
-	y=wave_advanced(current_time,0.1,100,ystart)
+	
+	
+	//interaction to escape if nearby a predator is near
+	if !eatable && (point_distance(x,y,Obj_fish.x,Obj_fish.y) < _range) {
+		
+		if (_predator.size!=0.5) {
+		
+				if (_predator.y>y) {
+				
+					y+=vspd
+					vspd-=0.1
+				
+				}
+			
+				if (_predator.y<y) {
+				
+					y+=vspd
+					vspd+=0.1
+				
+				}
+			}
+	
+		}else{
+		
+		vspd = 0
+		y=wave_advanced(current_time,0.1,100,ystart)
+	
+	}
+	
+	//
+	
+	
+	
+	
+	
 	
 	break;
 	
@@ -59,8 +97,34 @@ switch(type){
 	
 	case 4:
 	
+	//grouper fish
 	x+=hspd
 	y=wave_advanced(current_time,0.1,325,ystart)
+	
+	
+	var _range_group = sprite_width*2
+	var _speed = 10
+	
+	var _friend = instance_find(Obj_fish, instance_number(Obj_fish) - 1)
+	
+	if (_friend.size = 0.5) && size=0.5  {
+	
+		image_blend = c_red
+	
+		if (point_distance(x,y,_friend.x,_friend.y)<_range_group){
+		
+		_friend.hspd = lengthdir_x(_speed,point_direction(_friend.x,_friend.y,x,y))
+		_friend.vspd = lengthdir_y(_speed,point_direction(_friend.x,_friend.y,x,y))
+
+		}
+	
+	
+	
+	}	
+	
+	
+	
+	
 	
 	
 	

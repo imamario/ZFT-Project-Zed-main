@@ -1,4 +1,10 @@
 if start>0{start-=0.05}
+/*
+offset_x += (-keyboard_check(vk_left) +keyboard_check(vk_right))
+offset_y += (-keyboard_check(vk_up) +keyboard_check(vk_down))
+
+*/
+
 
 if anim_yscale!=1{anim_yscale=lerp(anim_yscale,1,0.1)}
 
@@ -150,9 +156,9 @@ if mouse_check_button_pressed(mb_left) {
 		cur_stage[0]++
 	}
 		
-	print(global.level)
+	//print(global.level)
 }
-print(cur_stage[0])
+//print(cur_stage[0])
 /*
 if mouse_check_button_pressed(mb_left) {
 	

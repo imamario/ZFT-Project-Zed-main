@@ -1064,6 +1064,7 @@
     {"id":{"name":"Spr_splatshot","path":"sprites/Spr_splatshot/Spr_splatshot.yy",},},
     {"id":{"name":"Spr_squidcave","path":"sprites/Spr_squidcave/Spr_squidcave.yy",},},
     {"id":{"name":"Spr_storybtt","path":"sprites/Spr_storybtt/Spr_storybtt.yy",},},
+    {"id":{"name":"Spr_tag","path":"sprites/Spr_tag/Spr_tag.yy",},},
     {"id":{"name":"Spr_test","path":"sprites/Spr_test/Spr_test.yy",},},
     {"id":{"name":"Spr_texter","path":"sprites/Spr_texter/Spr_texter.yy",},},
     {"id":{"name":"Spr_thanks","path":"sprites/Spr_thanks/Spr_thanks.yy",},},

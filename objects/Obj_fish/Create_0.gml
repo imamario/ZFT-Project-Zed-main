@@ -19,6 +19,7 @@ sped = 1.5;
 
 //move of fish speed
 hspd=0;
+vspd=0;
 hspd=random_range(6,10);
 OGhspd=hspd
 
@@ -69,7 +70,15 @@ switch(size){
 
 
 diff=round(random(13));
-type=choose(2,2,2,2,3,4,4)//choose(1,2,2,2,2,2)//round(random(11));
+type=choose(2,2,2,2,3,4)
+
+var _fish = instance_find(Obj_fish, instance_number(Obj_fish) - 1);
+if (!instance_exists(_fish) || _fish.type != 4) {
+    type = choose(4, type);
+}
+
+
+//choose(1,2,2,2,2,2)//round(random(11));
 turn=round(random(120));
 eatable=false
 

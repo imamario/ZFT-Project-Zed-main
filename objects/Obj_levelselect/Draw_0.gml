@@ -39,6 +39,13 @@ for(var i = 0 ; i < _levels_to_draw ; i++) {
 		draw_levels(Spr_pictures, cur_stage[0], positions[i].xto, positions[i].yto)
 		if i = 4 {draw_levels(Spr_pictures, 12, positions[4].xto, positions[4].yto)}
 		
+		
+		
+		
+		//draw_tags
+		draw_sprite_ext(Spr_tag,i,(positions[i].xto+anim_x)-174,(positions[i].yto+anim_y)-121,0.6030293,0.602751*anim_yscale,0,c_white,image_alpha)//draw the portrait tag
+		print("offset_x and offset_y: " + string([offset_x,offset_y]))
+		
 	}
 		
 	else {	
@@ -48,6 +55,7 @@ for(var i = 0 ; i < _levels_to_draw ; i++) {
 	
 	
 }
+
 
 /*
 for(var i = 0 ; i < max_level ; i++) { //i will be max_level
