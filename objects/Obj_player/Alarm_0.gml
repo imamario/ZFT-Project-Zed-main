@@ -24,7 +24,7 @@ randomise()
 
 if (global.state == "paused" || global.state == "cutscene") exit;
 var _phase = 0
-if global.size < 1 {_phase = 1}
+if (global.size > 1) {_phase = 1}
 
 
 
@@ -41,7 +41,7 @@ with (Obj_fish) {
     if (size == 1.5) _fish_count_size[2]++;
 
 }
-
+/* Og
 if (can_spawn && _fish_count < _fish_cap) {
     var _spawnx = choose(room_width + 100, -100);
     var _spawny = random_range(100, room_height - 100);
@@ -74,6 +74,125 @@ if (can_spawn && _fish_count < _fish_cap) {
 
     show_debug_message("Fish spawned: " + string(_fish_count + 1) + "/" + string(_fish_cap));
 }
+*/
+
+
+
+
+if (can_spawn && _fish_count < _fish_cap) {
+    var _spawnx = choose(room_width + 100, -100);
+    var _spawny = random_range(100, room_height - 100);
+
+
+	if (_phase==0) {
+		
+		if (_fish_count_size[1]>_fish_count_size[0]){
+		
+			with(instance_create_layer(_spawnx, _spawny, "Instances", Obj_fish)) {
+	
+				var _destroy = choose(0,1)
+				if _destroy { instance_destroy() }
+			
+				image_index = round(random(4))
+			
+				size = 0.5
+				type = 2
+				draw_size = (size*sign(draw_size)) 
+				image_yscale = size 
+	
+			}
+
+		}else{
+		
+			with(instance_create_layer(_spawnx, _spawny, "Instances", Obj_fish)) {
+	
+				var _destroy = choose(0,1)
+				if _destroy { instance_destroy() }
+			
+				image_index = round(random(4))
+			
+				size = choose(0.5,1)
+				type = 2
+				draw_size = (size*sign(draw_size)) 
+				image_yscale = size 
+	
+			}
+	
+		}
+	
+	}
+	
+	if (_phase==1) {
+		
+		if (_fish_count_size[1]>_fish_count_size[2]){
+		
+			with(instance_create_layer(_spawnx, _spawny, "Instances", Obj_fish)) {
+	
+				var _destroy = choose(0,1)
+				if _destroy { instance_destroy() }
+			
+				image_index = round(random(4))
+			
+				size = 0.5
+				type = 2
+				draw_size = (size*sign(draw_size)) 
+				image_yscale = size 
+	
+			}
+
+		}else{
+		
+			with(instance_create_layer(_spawnx, _spawny, "Instances", Obj_fish)) {
+	
+				var _destroy = choose(0,1)
+				if _destroy { instance_destroy() }
+			
+				image_index = round(random(image_number))
+			
+				size = choose(0.5,1,1.5)
+				type = 2
+				draw_size = (size*sign(draw_size)) 
+				image_yscale = size 
+	
+			}
+	
+		}
+		
+		
+		
+		
+	}
+	
+
+    
+
+    show_debug_message("Fish spawned: " + string(_fish_count + 1) + "/" + string(_fish_cap));
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 var _max_interval = (global.state == "rage") ? 10 : 40;
 alarm[0] = irandom_range(5, _max_interval);
