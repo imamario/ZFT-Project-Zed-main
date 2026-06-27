@@ -46,23 +46,39 @@ case AKSTATE.CLAW:
 
 	//print("(point_distance(pos.x,pos.y,832,736)<10): " +string((point_distance(pos.x,pos.y,832,736)<10)))
 
-	if (point_distance(pos.x,pos.y,pos.x,736)<20) {
+	if (point_distance(pos.x,pos.y,836,pos.y)<20) {
 		
 	print("done")
-	speed=0
+	pos.x = lerp(pos.x,836,0.1)
+	pos.y = lerp(pos.y,736,0.1)
+	if !instance_exists(Obj_claw) {instance_create_layer(1792,-512,"enemies",Obj_claw)}
 	
 	
 	}else{ 
 		
-		pos.x = lerp(pos.x,836,0.1)
-		pos.y = lerp(pos.y,736,0.1)
+
 		
-		print("point_distance: " + string((point_distance(pos.x,pos.y,pos.x,736))))}
+		
+		
+		
+		var _dir = point_direction(pos.x,pos.y,836,736)
+		var _move_speed = 10
+		var _wave_offset = wave_advanced(current_time, _speed, _distance, 0, _asymmetry);
+		
+		
+		pos.x += lengthdir_x(_move_speed,_dir)
+		//pos.y += (lengthdir_y(_move_speed,_dir) + wave_advanced(current_time, _speed, _distance, room_height/2, _asymmetry))
+		pos.y = (y + lengthdir_y(_wave_offset, _dir));
+		
+		
+		
+		
+		//print("point_distance: " + string((point_distance(pos.x,pos.y,pos.x,736))))}
+	
+	}
 	
 	
 	
-	
-	if !instance_exists(Obj_claw) {instance_create_layer(1792,-512,"enemies",Obj_claw)}
 	
 
 

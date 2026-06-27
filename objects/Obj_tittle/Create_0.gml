@@ -53,7 +53,7 @@ next_menu = function(_array_index, _changeto, _is_action = -1, _current_menu_che
 		
 		if (point_in_rectangle(mouse_x, mouse_y, a[0], a[1], a[2], a[3])) {
 			
-			window_set_cursor(cr_handpoint)
+			//window_set_cursor(cr_handpoint)
 			
 			if (mouse_check_button_pressed(mb_left)) {
 				

@@ -1,0 +1,26 @@
+{
+  "$GMSound":"v2",
+  "%Name":"Snd_Mad_Lab",
+  "audioGroupId":{
+    "name":"audiogroup_default",
+    "path":"audiogroups/audiogroup_default",
+  },
+  "bitDepth":1,
+  "channelFormat":0,
+  "compression":0,
+  "compressionQuality":4,
+  "conversionMode":0,
+  "duration":144.01413,
+  "exportDir":"",
+  "name":"Snd_Mad_Lab",
+  "parent":{
+    "name":"ZFT Project Zed",
+    "path":"ZFT Project Zed.yyp",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"Snd_Mad_Lab.mp3",
+  "volume":1.0,
+}

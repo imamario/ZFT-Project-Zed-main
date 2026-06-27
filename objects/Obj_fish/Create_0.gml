@@ -1,6 +1,5 @@
 randomise()
 
-
 u_time_id = shader_get_uniform(Sha_wave, "u_time");
 u_amplitude_id = shader_get_uniform(Sha_wave, "u_amplitude");
 u_frequency_id = shader_get_uniform(Sha_wave, "u_frequency");
@@ -12,10 +11,13 @@ despawn=60*5;
 eateble=false;
 
 // Set wave properties
-amplitude = 0.02;
-frequency = 10; //10;
+amplitude = 0.03;
+frequency = 15; //10;
 sped = 1.5;
 
+
+
+//move of fish speed
 hspd=0;
 hspd=random_range(6,10);
 OGhspd=hspd
@@ -67,7 +69,7 @@ switch(size){
 
 
 diff=round(random(13));
-type=4//choose(2,2,2,2,3,4444)//choose(1,2,2,2,2,2)//round(random(11));
+type=choose(2,2,2,2,3,4,4)//choose(1,2,2,2,2,2)//round(random(11));
 turn=round(random(120));
 eatable=false
 

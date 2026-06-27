@@ -1,0 +1,1 @@
+if room=Rm_warning || room=Rm_loading { persistent = true } else { instance_destroy() }

@@ -38,16 +38,21 @@ switch(type){
 	if turn!=0{turn-=0.1}else{turn=round(random_range(100,220))}
 	if turn=0.1{draw_size=-draw_size hspd=-hspd} 
 	x+=hspd
+	y=wave_advanced(current_time,0.1,100,ystart)
 	
 	break;
 	
 	case 3:
 	
 	x+=hspd
+	
+	/*
 	if eatable!=true && (point_distance(x,y,Obj_player.x,Obj_player.y)<500){
 		time+=0.05
 		if (Obj_player.y>y){ y+=(time/10) }else{ y-=(time/10) }
-		}
+		}]
+	*/
+	
 	
 	
 	break;
@@ -55,7 +60,7 @@ switch(type){
 	case 4:
 	
 	x+=hspd
-	y+=wave_advanced(current_time,1,50,ystart)
+	y=wave_advanced(current_time,0.1,325,ystart)
 	
 	
 	
