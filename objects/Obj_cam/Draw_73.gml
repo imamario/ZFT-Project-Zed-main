@@ -29,10 +29,16 @@ if (raged) {
 
 	draw_set_alpha(trans);
 	draw_rectangle_color(_x1, _y1, _x1 + _vw, _y1 + _vh, _color, _color, _color, _color, false);
+	draw_sprite_ext(Spr_blood,0,x,y,image_xscale,image_yscale,0,c_white,0.5)
+	
 	draw_set_alpha(1);
 
 	with (all) { image_blend = c_red; }
 	image_blend = c_white;
+	
+	
+	
+	
 }
 
 

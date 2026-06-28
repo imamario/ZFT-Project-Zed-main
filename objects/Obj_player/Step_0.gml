@@ -1,3 +1,6 @@
+print("iv_frames: " +string(iv_frames))
+
+
 /*
 if mouse_check_button(mb_right) {
 
@@ -7,7 +10,14 @@ print("NOSGMNOOF SPAWNED")
 }
 */
 // --- 1. PRE-CHECKS ---
+iv_frames-=0.01;
+if (iv_frames>0){sprint = 0; sneaking = false; draw_alpha=choose(0.5,1);}
+else if iv_frames = 0{draw_alpha=1};
+var _combo_iv = 50 //how many fishes currently eaten in a combo needed to have a chance of receiving iv_frames when touching some non eateable enemie 
+
+
 if (global.state!="dead") && x!=9999 && y!=-9999 {bloodpos=[x,y]}
+
 
 if (global.state == "paused")||(global.state == "cutscene") exit;
 if (global.state == "victory") {
@@ -194,6 +204,14 @@ if (global.state == "running" || global.state == "rage") {
     var _fish = instance_place(x, y, Obj_fish);
     if (_fish != noone) {
         if (_fish.eatable) {
+			
+			
+			
+			
+			
+			
+			
+			
             alarm_set(1, 200);
 			repeat(2) {
 			event_perform(ev_alarm, 0);
@@ -237,9 +255,35 @@ if (global.state == "running" || global.state == "rage") {
             if (random(11) > 10) instance_create_layer(x, y, "Instances", Obj_bottle);
             instance_destroy(_fish);
         } else {
-            global.state = "dead";
-            audio_play_sound(Snd_jaw, 1, false,global.settings.audio[1]);
-        }
+			
+			var _combo_current_eaten = combo_info[1]
+			var _chance = round(_combo_current_eaten); // 15
+
+			if (irandom(1) < _chance) {
+			
+				iv_frames = 1
+				combo_info[1] = 0
+				combo_info[0] = 0
+				audio_play_sound(choose(Snd_bloodsplat1,Snd_bloodsplat2), 1, false,global.settings.audio[1]);
+				
+			}
+			
+			
+			
+			if (iv_frames < 0.1) {
+			
+				global.state = "dead";
+				audio_play_sound(Snd_jaw, 1, false,global.settings.audio[1]);
+			
+			}
+			
+			
+		
+		
+		
+		
+		
+		}
     }
 
     if (global.state == "rage") {

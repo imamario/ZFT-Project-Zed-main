@@ -22,7 +22,7 @@ if global.state!="rage"{alarm_set(0,random_range(5,40)); print("fish spawned: " 
 randomise()
 
 
-if (global.state == "paused" || global.state == "cutscene") exit;
+if (global.state == "paused" || global.state == "cutscene") || !can_spawn {alarm_set(0,1) exit;}
 var _phase = 0
 if (global.size > 1) {_phase = 1}
 

@@ -52,6 +52,7 @@ full_restart = function(){
 xprevious_scale=0
 do_basics()
 _range=50
+iv_frames = 0
 
 
 
@@ -80,7 +81,7 @@ draw_yscale=global.size;
 draw_angle=global.size;
 draw_alpha=1
 
-alarm_set(0,300);
+alarm_set(0,1); //put
 
 combo_info=[0,0,0,0];
 //combo timer, combo eaten, highest combo, eaten total
